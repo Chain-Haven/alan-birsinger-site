@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Houston Employer-Plan Advisor | Alan J. Birsinger</title>
+<meta name="description" content="Independent guidance for current and former employees of major Houston employers." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
+<style>
+.indep-banner{background:var(--accent-soft);border:1px solid var(--accent);padding:16px 20px;font-size:13.5px;color:var(--ink);margin-bottom:32px;line-height:1.5}
+.indep-banner strong{color:var(--accent-deep)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:880px){.cols-2{grid-template-columns:1fr;gap:32px}}
+.related-emp{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.related-emp a{padding:24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+.related-emp a:hover{background:var(--bg-deep)}
+.related-emp .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.related-emp h4{font-family:var(--font-display);font-size:18px;font-weight:500}
+@media(max-width:980px){.related-emp{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.related-emp{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="wrap"><nav class="crumbs"><a href="Alan Birsinger Homepage.html">Home</a><span class="sep">/</span><a href="Alan Birsinger Homepage.html#employers">Employer Plans</a><span class="sep">/</span><span class="here" id="bc-current">Employer</span></nav></div>
+
+<section class="page-hero"><div class="wrap">
+  <div class="eyebrow-row"><span class="line"></span><span class="eyebrow" id="emp-eyebrow">Employer Plan · Houston, TX</span></div>
+  <h1 id="emp-h1">Employer plan advisor.</h1>
+  <p class="lede" id="emp-lede">Loading…</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+    <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule a Consultation</a>
+    <a class="btn btn-ghost" href="tel:+12817865159">Call (281) 786-5159</a>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow">
+  <div class="indep-banner" id="emp-disclaimer"><strong>Independence notice:</strong> Loading…</div>
+  <div class="cols-2">
+    <div>
+      <div class="sub"><span style="color:var(--accent)">01</span> · Plan landscape</div>
+      <h2 style="margin-bottom:18px;font-size:28px">What you may have.</h2>
+      <ul class="list-clean" id="emp-plans"></ul>
+    </div>
+    <div>
+      <div class="sub"><span style="color:var(--accent)">02</span> · Decisions you face</div>
+      <h2 style="margin-bottom:18px;font-size:28px">Choices that compound.</h2>
+      <ul class="list-clean" id="emp-decisions"></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">03</span> · How I help</div>
+  <h2 style="margin-bottom:24px;font-size:28px" id="emp-help-h">How I help current and former employees.</h2>
+  <ul class="list-clean" id="emp-services"></ul>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">04</span> · Plan-document reminder</div>
+  <div style="background:var(--ink);color:var(--paper);padding:32px;border-left:2px solid var(--accent)">
+    <p style="color:var(--paper);margin:0 0 10px;font-family:var(--font-display);font-size:22px;font-weight:400;line-height:1.3">Plan terms change — verify before you decide.</p>
+    <p style="color:#c8c1ae;margin:0;font-size:15px;line-height:1.6">Always consult your current Summary Plan Description and the plan administrator before making any decisions. The information on this page is general and educational; specific provisions in your plan may differ.</p>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="sub"><span style="color:var(--accent)">05</span> · Other Houston employers</div>
+  <h2 style="margin-bottom:24px;font-size:28px">Also work with retirees from…</h2>
+  <div class="related-emp" id="emp-related"></div>
+</div></section>
+
+<div id="site-footer"></div>
+<script src="employers-data.js"></script>
+<script src="chrome.js"></script>
+<script>
+(function(){
+  const id = (location.hash || '').replace(/^#/, '') || 'exxonmobil';
+  const all = window.EMPLOYERS || {};
+  const emp = all[id];
+  if (!emp) { document.getElementById('emp-h1').textContent='Employer not found'; return; }
+  document.title = emp.title;
+  document.querySelector('meta[name="description"]').setAttribute('content', emp.meta);
+  document.getElementById('bc-current').textContent = emp.crumb;
+  document.getElementById('emp-eyebrow').textContent = emp.eyebrow;
+  document.getElementById('emp-h1').innerHTML = emp.h1;
+  document.getElementById('emp-lede').textContent = emp.lede;
+  document.getElementById('emp-disclaimer').innerHTML = '<strong>Independence notice.</strong> ' + emp.disclaimer;
+  document.getElementById('emp-plans').innerHTML = emp.plans.map(p => `<li>${p}</li>`).join('');
+  document.getElementById('emp-decisions').innerHTML = emp.decisions.map(p => `<li>${p}</li>`).join('');
+  document.getElementById('emp-services').innerHTML = emp.services.map(p => `<li>${p}</li>`).join('');
+  document.getElementById('emp-help-h').textContent = `How I help ${emp.name} employees and retirees.`;
+  document.getElementById('emp-related').innerHTML = Object.entries(all).filter(([k])=>k!==id).slice(0,6).map(([k,v]) => `<a href="employer.html#${k}"><span class="lbl">Houston employer</span><h4>${v.name}</h4></a>`).join('');
+})();
+window.addEventListener('hashchange',()=>location.reload());
+</script>
+</body></html>

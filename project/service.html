@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Service · Alan J. Birsinger — Wealth Management Group</title>
+<meta name="description" content="Houston financial advisor Alan Birsinger — service detail." />
+
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg:#f4f1ea; --bg-deep:#e9e3d5; --paper:#fbf8f1;
+  --ink:#0f2a44; --ink-2:#27425a; --ink-3:#6b7a89;
+  --rule:#d6d0bf; --accent:#9c7a3a; --accent-deep:#7e5e22; --accent-soft:#ece2c8;
+  --font-display:"Source Serif 4", Georgia, serif;
+  --font-body:"Inter", system-ui, sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.wrap-narrow{max-width:980px;margin:0 auto;padding:0 32px}
+
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;letter-spacing:-0.012em;color:var(--ink);margin:0;text-wrap:balance}
+
+.eyebrow{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-size:15px;font-weight:500;border-radius:2px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:all .15s ease;white-space:nowrap}
+.btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Utility strip + header (compact, mirrors home) */
+.utility{background:var(--ink);color:#d9d2c0;font-size:13px}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 32px;gap:24px;max-width:1240px;margin:0 auto}
+.utility a{color:#e7e2d3;text-decoration:none}
+.utility a:hover{color:var(--accent)}
+.utility .right{font-family:var(--font-mono);font-size:12px;display:flex;align-items:center;gap:8px}
+.utility .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+header.site{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+header.site .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;padding:16px 32px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex-shrink:0}
+.brand .mark{width:48px;height:48px;display:grid;place-items:center;background:var(--paper);border:1px solid var(--rule);padding:5px;flex-shrink:0}
+.brand .mark img{width:100%;height:100%;object-fit:contain}
+.brand-text{display:flex;flex-direction:column;gap:2px}
+.brand .name{font-family:var(--font-display);font-size:18px;font-weight:500;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.brand .sub{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+nav.primary{display:flex;gap:26px;justify-content:center}
+nav.primary a{text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;white-space:nowrap}
+nav.primary a:hover{color:var(--accent)}
+.head-cta{display:flex;gap:12px;align-items:center}
+.phone-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:13px;color:var(--ink);text-decoration:none;font-weight:500}
+.phone-pill svg{width:14px;height:14px;color:var(--accent)}
+
+/* Breadcrumbs */
+.crumbs{padding:24px 0 0;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
+.crumbs a{text-decoration:none;color:var(--ink-3)}
+.crumbs a:hover{color:var(--accent)}
+.crumbs .sep{margin:0 8px;color:var(--rule)}
+.crumbs .here{color:var(--ink)}
+
+/* Hero */
+.svc-hero{padding:48px 0 72px}
+.svc-hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.svc-hero .eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.svc-hero .eyebrow-row .line{width:32px;height:1px;background:var(--accent)}
+.svc-hero h1{font-size:clamp(36px,4.4vw,60px);line-height:1.05;font-weight:350;letter-spacing:-.02em;margin-bottom:20px}
+.svc-hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.svc-hero .lede{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:56ch;margin-bottom:28px}
+.svc-hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+.svc-hero .at-glance{background:var(--paper);border:1px solid var(--rule);border-left:2px solid var(--accent);padding:28px}
+.svc-hero .at-glance h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:18px}
+.svc-hero .at-glance dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 18px}
+.svc-hero .at-glance dt{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);align-self:start;padding-top:2px}
+.svc-hero .at-glance dd{margin:0;font-size:14px;color:var(--ink);font-weight:500}
+
+/* Section blocks */
+.section{padding:64px 0;border-top:1px solid var(--rule)}
+.section.alt{background:var(--paper)}
+.section h2{font-size:clamp(28px,3vw,40px);line-height:1.1;font-weight:400;letter-spacing:-.014em;margin-bottom:8px}
+.section .sub{color:var(--ink-3);font-size:14px;font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase;margin-bottom:28px}
+
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.list-clean{margin:0;padding:0;list-style:none}
+.list-clean li{padding:14px 0;border-top:1px solid var(--rule);font-size:16px;color:var(--ink-2);display:flex;gap:14px;align-items:baseline;line-height:1.5}
+.list-clean li:first-child{border-top:0;padding-top:0}
+.list-clean li::before{content:"";flex-shrink:0;width:6px;height:6px;background:var(--accent);margin-top:8px}
+
+.steps-list{counter-reset:step;display:grid;gap:0}
+.steps-list .step{padding:24px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start}
+.steps-list .step:first-child{border-top:0}
+.steps-list .step .n{counter-increment:step;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.steps-list .step .n::before{content:"Step " counter(step,decimal-leading-zero)}
+.steps-list .step h3{font-size:21px;font-weight:500;margin-bottom:6px}
+.steps-list .step p{margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.55;max-width:62ch}
+
+/* FAQ */
+.faqs{display:grid;gap:0}
+.faq{border-top:1px solid var(--rule);padding:22px 0}
+.faq:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:var(--font-display);font-size:20px;font-weight:500;line-height:1.3;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-mono);font-size:24px;color:var(--accent);transition:transform .2s ease;font-weight:400;line-height:1}
+.faq[open] summary::after{content:"\2013"}
+.faq .a{margin-top:14px;color:var(--ink-2);font-size:15.5px;line-height:1.6;max-width:72ch}
+
+/* Houston context */
+.ctx-block{background:var(--ink);color:var(--paper);padding:48px;border-left:2px solid var(--accent)}
+.ctx-block .label{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c8c1ae;margin-bottom:16px}
+.ctx-block h3{color:var(--paper);font-size:26px;font-weight:400;line-height:1.2;margin-bottom:14px;font-family:var(--font-display)}
+.ctx-block p{color:#c8c1ae;font-size:15.5px;line-height:1.6;margin-bottom:14px;max-width:72ch}
+.ctx-block .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.ctx-block .chip{padding:6px 12px;background:rgba(231,160,106,.12);color:#e7a06a;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+
+/* Related services */
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.related a{padding:24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);background:var(--paper);transition:background .15s ease;display:flex;flex-direction:column;gap:6px}
+.related a:hover{background:var(--bg-deep)}
+.related .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.related h4{font-family:var(--font-display);font-size:18px;font-weight:500;line-height:1.25}
+.related p{margin:0;color:var(--ink-3);font-size:13.5px}
+
+/* Final CTA */
+.svc-cta{padding:72px 0;background:var(--ink);color:var(--paper)}
+.svc-cta .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.svc-cta h2{color:var(--paper);font-size:clamp(28px,3vw,42px);line-height:1.1;font-weight:350;letter-spacing:-.014em;margin-bottom:18px}
+.svc-cta h2 em{font-style:italic;color:#e7a06a}
+.svc-cta p{color:#c8c1ae;font-size:16px;margin-bottom:24px;max-width:50ch}
+.svc-cta .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.svc-cta .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.svc-cta .btn-primary:hover{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.svc-cta .btn-ghost{color:var(--paper);border-color:#6a6151}
+.svc-cta .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+
+/* compliance per-service */
+.svc-disclosures{padding:32px 0;font-size:13px;line-height:1.6;color:var(--ink-3);background:var(--bg-deep)}
+.svc-disclosures .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.svc-disclosures h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:500;margin-bottom:10px}
+.svc-disclosures p{margin:0 0 8px;max-width:none}
+
+/* Footer (compact mirror of home) */
+footer.site{background:#0a1a2a;color:#9aa9b9;padding:56px 0 24px;font-size:13.5px}
+footer.site .wrap{padding:0 32px;max-width:1240px;margin:0 auto}
+footer.site .row{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:48px;padding-bottom:36px;border-bottom:1px solid #1f3a4f}
+footer.site .brand .name{color:var(--paper)}
+footer.site .brand .sub{color:#6b7a89}
+footer.site h4{color:var(--paper);font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:14px}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site li{margin-bottom:8px}
+footer.site a{color:#9aa9b9;text-decoration:none}
+footer.site a:hover{color:var(--paper)}
+footer.site .compliance{padding:24px 0;border-bottom:1px solid #1f3a4f;font-size:12px;line-height:1.6}
+footer.site .compliance p{margin:0 0 8px;color:#7a8898}
+footer.site .compliance strong{color:var(--paper)}
+footer.site .compliance a{color:#e7a06a;text-decoration:underline}
+footer.site .colophon{padding-top:18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:#6b7a89;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer.site .contact-block{margin-top:14px;font-size:13px;line-height:1.7}
+footer.site .contact-block a{color:var(--paper)}
+
+/* responsive */
+@media (max-width:980px){
+  .svc-hero .wrap,.cols-2,.svc-cta .wrap,.related,footer.site .row{grid-template-columns:1fr;gap:32px}
+  .related{grid-template-columns:1fr 1fr}
+  nav.primary{display:none}
+  header.site .wrap{grid-template-columns:auto auto}
+}
+@media (max-width:640px){.related{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <div><a href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">FINRA BrokerCheck — CRD #4213860 ↗</a></div>
+    <div class="right"><span class="dot"></span><span>Greater Houston · Virtual where licensed</span></div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="Alan Birsinger Homepage.html">
+      <span class="mark"><img src="wmg-icon.png" alt="Wealth Management Group" /></span>
+      <span class="brand-text">
+        <span class="name">Alan&nbsp;J.&nbsp;Birsinger</span>
+        <span class="sub">Wealth Management Group</span>
+      </span>
+    </a>
+    <nav class="primary">
+      <a href="Alan Birsinger Homepage.html#about">About</a>
+      <a href="Alan Birsinger Homepage.html#services">Services</a>
+      <a href="Alan Birsinger Homepage.html#employers">Employer Plans</a>
+      <a href="Alan Birsinger Homepage.html#serving">Areas Served</a>
+      <a href="Alan Birsinger Homepage.html#insights">Insights</a>
+      <a href="Alan Birsinger Homepage.html#process">Process</a>
+    </nav>
+    <div class="head-cta">
+      <a class="phone-pill" href="tel:+12817865159">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (281) 786-5159
+      </a>
+      <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="Alan Birsinger Homepage.html">Home</a>
+    <span class="sep">/</span>
+    <a href="Alan Birsinger Homepage.html#services">Services</a>
+    <span class="sep">/</span>
+    <span class="here" id="bc-current">Service</span>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="svc-hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-row">
+        <span class="line" style="display:inline-block;background:var(--accent)"></span>
+        <span class="eyebrow" id="svc-eyebrow">Service · Houston, Texas</span>
+      </div>
+      <h1 id="svc-h1">Service in Houston, Texas</h1>
+      <p class="lede" id="svc-lede">Loading…</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule a Complimentary Consultation</a>
+        <a class="btn btn-ghost" href="tel:+12817865159">Call (281) 786-5159</a>
+      </div>
+    </div>
+
+    <div class="at-glance">
+      <h4>At a glance</h4>
+      <dl id="svc-glance">
+        <dt>Best for</dt><dd id="svc-best-for">—</dd>
+        <dt>Format</dt><dd>In-person Houston · Virtual where licensed</dd>
+        <dt>First step</dt><dd>Complimentary 45-minute conversation</dd>
+        <dt>Coordinates with</dt><dd>Your CPA, attorney, plan administrator</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Who this is for + What's included -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="cols-2">
+      <div>
+        <div class="sub"><span style="color:var(--accent)">01</span> · Who this is for</div>
+        <h2 style="margin-bottom:24px">Situations I see most often.</h2>
+        <ul class="list-clean" id="svc-who"></ul>
+      </div>
+      <div>
+        <div class="sub"><span style="color:var(--accent)">02</span> · What's included</div>
+        <h2 style="margin-bottom:24px">What the engagement covers.</h2>
+        <ul class="list-clean" id="svc-included"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section">
+  <div class="wrap-narrow">
+    <div class="sub"><span style="color:var(--accent)">03</span> · How the process works</div>
+    <h2 style="margin-bottom:32px">A measured approach, in clear steps.</h2>
+    <div class="steps-list" id="svc-steps"></div>
+  </div>
+</section>
+
+<!-- Houston context -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="ctx-block" id="svc-ctx-block">
+      <div class="label">Houston context</div>
+      <h3 id="svc-ctx-h">Local detail.</h3>
+      <p id="svc-ctx-p">—</p>
+      <div class="chips" id="svc-ctx-chips"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap-narrow">
+    <div class="sub"><span style="color:var(--accent)">04</span> · Common questions</div>
+    <h2 style="margin-bottom:32px">Plain-English answers.</h2>
+    <div class="faqs" id="svc-faqs"></div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="sub"><span style="color:var(--accent)">05</span> · Related services</div>
+    <h2 style="margin-bottom:32px">You might also be thinking about…</h2>
+    <div class="related" id="svc-related"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="svc-cta">
+  <div class="wrap">
+    <div>
+      <h2>Let's talk about <em>your situation,</em><br/>not a generic plan.</h2>
+      <p>The first conversation is complimentary and roughly 45 minutes. No pitch, no pressure. We'll cover what you have, what concerns you, and whether working together makes sense.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule via Microsoft Teams</a>
+        <a class="btn btn-ghost" href="tel:+12817865159">Call (281) 786-5159</a>
+      </div>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:12.5px;line-height:1.7;color:#c8c1ae;letter-spacing:.04em;border-left:1px solid #4a4133;padding-left:32px">
+      <div style="text-transform:uppercase;color:#e7a06a;font-size:11px;letter-spacing:.14em;margin-bottom:14px">Direct contact</div>
+      <div>Phone · <a href="tel:+12817865159" style="color:#fff;text-decoration:none">(281) 786-5159</a></div>
+      <div style="margin-top:6px">Email · <a href="mailto:alan.birsinger@wealthmanagementgroup-inc.com" style="color:#fff;text-decoration:none;word-break:break-all">alan.birsinger@<br/>wealthmanagementgroup-inc.com</a></div>
+      <div style="margin-top:16px;color:#8a7f6c">Office Hours<br/>Mon–Fri · 9 AM – 5 PM CT</div>
+    </div>
+  </div>
+</section>
+
+<!-- Per-service compliance disclosures -->
+<aside class="svc-disclosures">
+  <div class="wrap">
+    <h4>Service-Specific Disclosures</h4>
+    <div id="svc-disclosures-body">
+      <p>This page is for informational purposes only and is not tax or legal advice. Investing involves risk including possible loss of principal; past performance is not indicative of future results.</p>
+    </div>
+  </div>
+</aside>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <a class="brand" href="Alan Birsinger Homepage.html">
+          <span class="mark"><img src="wmg-icon.png" alt="Wealth Management Group" /></span>
+          <span class="brand-text">
+            <span class="name">Alan&nbsp;J.&nbsp;Birsinger</span>
+            <span class="sub">Wealth Management Group, Inc.</span>
+          </span>
+        </a>
+        <div class="contact-block">
+          <div><a href="tel:+12817865159">(281) 786-5159</a></div>
+          <div><a href="mailto:alan.birsinger@wealthmanagementgroup-inc.com">alan.birsinger@wealthmanagementgroup-inc.com</a></div>
+          <div>Greater Houston Area, TX · Mon–Fri · 9–5 CT</div>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="service.html#retirement-planning-houston">Retirement Planning</a></li>
+          <li><a href="service.html#401k-rollover-houston">401(k) Rollovers</a></li>
+          <li><a href="service.html#pension-lump-sum-decisions">Pension Decisions</a></li>
+          <li><a href="service.html#investment-management-houston">Investment Management</a></li>
+          <li><a href="service.html#social-security-and-medicare-planning">Social Security &amp; Medicare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Employer Plans</h4>
+        <ul>
+          <li><a href="Alan Birsinger Homepage.html#employers">ExxonMobil</a></li>
+          <li><a href="Alan Birsinger Homepage.html#employers">Chevron</a></li>
+          <li><a href="Alan Birsinger Homepage.html#employers">Shell</a></li>
+          <li><a href="Alan Birsinger Homepage.html#employers">SLB</a></li>
+          <li><a href="Alan Birsinger Homepage.html#employers">NASA / JSC</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About &amp; Resources</h4>
+        <ul>
+          <li><a href="Alan Birsinger Homepage.html#about">About Alan</a></li>
+          <li><a href="Alan Birsinger Homepage.html#process">My Process</a></li>
+          <li><a href="Alan Birsinger Homepage.html#insights">Insights</a></li>
+          <li><a href="Alan Birsinger Homepage.html#schedule">Schedule a Call</a></li>
+          <li><a href="Alan Birsinger Homepage.html#disclosures">Disclosures</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="compliance">
+      <p><strong>Securities &amp; Advisory.</strong> Securities and advisory services offered through {{TODO: VERIFY VIA BROKERCHECK — Broker-Dealer Name}}, a Registered Investment Adviser. Member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> &amp; <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. Check the background of this investment professional on <a href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">FINRA's BrokerCheck</a> (CRD #4213860).</p>
+      <p><strong>State Registration.</strong> The financial professional may only discuss and/or transact securities business with residents of the following states: {{TODO: VERIFY — full list; Texas at minimum}}.</p>
+      <p><strong>General Information.</strong> The content on this site is for informational purposes only and is not intended as tax or legal advice. Nothing on this site is a solicitation in any state where the financial professional is not registered. Investing involves risk including possible loss of principal; past performance is not indicative of future results.</p>
+    </div>
+
+    <div class="colophon">
+      <div>© 2026 Alan J. Birsinger · Wealth Management Group, Inc. · All rights reserved.</div>
+      <div><a href="Alan Birsinger Homepage.html#disclosures">Disclosures</a> &nbsp;·&nbsp; <a href="Alan Birsinger Homepage.html#privacy">Privacy</a> &nbsp;·&nbsp; <a href="Alan Birsinger Homepage.html#accessibility">Accessibility</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="services-data.js"></script>
+<script>
+(function(){
+  const id = (location.hash || '').replace(/^#/, '') || 'retirement-planning-houston';
+  const all = window.SERVICES || {};
+  const svc = all[id];
+  if (!svc) {
+    document.getElementById('svc-h1').textContent = 'Service not found';
+    document.getElementById('svc-lede').textContent = 'The service you requested could not be found. Return to the homepage to browse all services.';
+    return;
+  }
+
+  // Title + meta
+  document.title = svc.title;
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', svc.meta);
+
+  document.getElementById('bc-current').textContent = svc.crumb || svc.h1Short;
+  document.getElementById('svc-eyebrow').textContent = svc.eyebrow;
+  document.getElementById('svc-h1').innerHTML = svc.h1;
+  document.getElementById('svc-lede').textContent = svc.lede;
+  document.getElementById('svc-best-for').textContent = svc.bestFor;
+
+  document.getElementById('svc-who').innerHTML = svc.who.map(li => `<li>${li}</li>`).join('');
+  document.getElementById('svc-included').innerHTML = svc.included.map(li => `<li>${li}</li>`).join('');
+
+  document.getElementById('svc-steps').innerHTML = svc.steps.map(s => `
+    <div class="step">
+      <div class="n"></div>
+      <div><h3>${s.h}</h3><p>${s.p}</p></div>
+    </div>`).join('');
+
+  document.getElementById('svc-ctx-h').textContent = svc.ctx.h;
+  document.getElementById('svc-ctx-p').textContent = svc.ctx.p;
+  document.getElementById('svc-ctx-chips').innerHTML = (svc.ctx.chips || []).map(c => `<span class="chip">${c}</span>`).join('');
+
+  document.getElementById('svc-faqs').innerHTML = svc.faqs.map((f,i) => `
+    <details class="faq" ${i===0?'open':''}>
+      <summary>${f.q}</summary>
+      <div class="a">${f.a}</div>
+    </details>`).join('');
+
+  document.getElementById('svc-related').innerHTML = svc.related.map(r => {
+    const target = all[r];
+    if (!target) return '';
+    return `<a href="service.html#${r}"><span class="lbl">Service</span><h4>${target.h1Short}</h4><p>${target.shortBlurb}</p></a>`;
+  }).join('');
+
+  if (svc.disclosures) {
+    document.getElementById('svc-disclosures-body').innerHTML = svc.disclosures.map(d => `<p>${d}</p>`).join('');
+  }
+
+  // FAQ JSON-LD
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": svc.faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(ld);
+  document.head.appendChild(s);
+})();
+
+// Re-render on hash change
+window.addEventListener('hashchange', () => location.reload());
+</script>
+</body>
+</html>

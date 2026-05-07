@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Financial Advisor in Houston Area | Alan J. Birsinger</title>
+<meta name="description" content="Independent financial planning for Houston neighborhoods and surrounding cities." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
+<style>
+.geo-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:32px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.geo-meta>div{padding:20px 24px;border-right:1px solid var(--rule)}
+.geo-meta>div:last-child{border-right:none}
+.geo-meta .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.geo-meta .val{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--ink)}
+@media(max-width:780px){.geo-meta{grid-template-columns:1fr}.geo-meta>div{border-right:none;border-bottom:1px solid var(--rule)}.geo-meta>div:last-child{border-bottom:none}}
+.map-frame{aspect-ratio:16/8;background:var(--bg-deep);border:1px solid var(--rule);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.map-frame .grid-dot{position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, var(--rule) 1px, transparent 0);background-size:24px 24px;opacity:.6}
+.map-frame .pin{position:relative;width:18px;height:18px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(196,121,53,.18),0 0 0 14px rgba(196,121,53,.08)}
+.map-frame .pin-label{position:absolute;left:50%;top:calc(50% + 28px);transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--paper);padding:4px 10px;border:1px solid var(--rule)}
+.local-touches{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--rule);border-top:1px solid var(--rule)}
+.local-touches>div{padding:24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.local-touches .num{font-family:var(--font-mono);color:var(--accent);font-size:11px;letter-spacing:.1em;margin-bottom:8px}
+.local-touches h4{font-family:var(--font-display);font-size:18px;font-weight:500;margin-bottom:6px}
+.local-touches p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;margin:0}
+@media(max-width:880px){.local-touches{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="wrap"><nav class="crumbs"><a href="Alan Birsinger Homepage.html">Home</a><span class="sep">/</span><a href="Alan Birsinger Homepage.html#serving">Serving</a><span class="sep">/</span><span class="here" id="bc-current">Area</span></nav></div>
+
+<section class="page-hero"><div class="wrap">
+  <div class="eyebrow-row"><span class="line"></span><span class="eyebrow" id="area-eyebrow">Serving · Houston Area</span></div>
+  <h1 id="area-h1">Financial advisor in your neighborhood.</h1>
+  <p class="lede" id="area-lede">Loading…</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+    <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule a Consultation</a>
+    <a class="btn btn-ghost" href="tel:+12817865159">Call (281) 786-5159</a>
+  </div>
+  <div class="geo-meta">
+    <div><div class="lbl">Drive Time</div><div class="val" id="area-drive">—</div></div>
+    <div><div class="lbl">Population</div><div class="val" id="area-pop">—</div></div>
+    <div><div class="lbl">Zip Codes Served</div><div class="val" id="area-zip">—</div></div>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">01</span> · The neighborhood</div>
+  <h2 style="margin-bottom:24px;font-size:30px" id="area-about-h">About the area.</h2>
+  <p style="font-size:18px;line-height:1.65;color:var(--ink-soft)" id="area-about"></p>
+  <div class="map-frame" style="margin-top:32px">
+    <div class="grid-dot"></div>
+    <div class="pin"><div class="pin-label" id="area-pin-label">Area</div></div>
+  </div>
+  <p style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em">{{TODO: REPLACE WITH GOOGLE MAPS EMBED}}</p>
+</div></section>
+
+<section class="section"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">02</span> · How I serve residents</div>
+  <h2 style="margin-bottom:24px;font-size:30px" id="area-help-h">How I serve residents here.</h2>
+  <ul class="list-clean" id="area-services"></ul>
+</div></section>
+
+<section class="section alt"><div class="wrap"><div class="wrap-narrow" style="padding:0">
+  <div class="sub"><span style="color:var(--accent)">03</span> · Hyper-local context</div>
+  <h2 style="margin-bottom:24px;font-size:30px">A few things I know about the area.</h2>
+</div>
+<div class="local-touches" id="area-touches"></div></div></section>
+
+<section class="section"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">04</span> · Often relevant nearby</div>
+  <h2 style="margin-bottom:18px;font-size:28px">Employer plans I see in this area.</h2>
+  <p style="color:var(--ink-soft);margin-bottom:24px" id="area-emp-lede"></p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px" id="area-emp-links"></div>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow" style="text-align:center">
+  <h2 style="font-size:32px;margin-bottom:14px">Talk through your situation.</h2>
+  <p style="color:var(--ink-soft);margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto">A complimentary, no-obligation conversation. In person locally or by Microsoft Teams.</p>
+  <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule a Consultation</a>
+</div></section>
+
+<div id="site-footer"></div>
+<script src="areas-data.js"></script>
+<script src="chrome.js"></script>
+<script>
+(function(){
+  const id = (location.hash || '').replace(/^#/, '') || 'the-woodlands';
+  const all = window.AREAS || {};
+  const a = all[id];
+  if (!a) { document.getElementById('area-h1').textContent='Area not found'; return; }
+  document.title = a.title;
+  document.querySelector('meta[name="description"]').setAttribute('content', a.meta);
+  document.getElementById('bc-current').textContent = a.crumb;
+  document.getElementById('area-eyebrow').textContent = `Serving · ${a.crumb}, TX`;
+  document.getElementById('area-h1').innerHTML = `Financial advisor in <em>${a.crumb}, TX.</em>`;
+  document.getElementById('area-lede').textContent = a.lede;
+  document.getElementById('area-drive').textContent = a.drive;
+  document.getElementById('area-pop').textContent = a.pop;
+  document.getElementById('area-zip').textContent = a.zips;
+  document.getElementById('area-about-h').textContent = `About ${a.crumb}.`;
+  document.getElementById('area-about').textContent = a.about;
+  document.getElementById('area-pin-label').textContent = a.crumb;
+  document.getElementById('area-help-h').textContent = `How I serve ${a.crumb} residents.`;
+  document.getElementById('area-services').innerHTML = a.services.map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('area-touches').innerHTML = a.touches.map((t,i)=>`<div><div class="num">${String(i+1).padStart(2,'0')}</div><h4>${t.h}</h4><p>${t.p}</p></div>`).join('');
+  document.getElementById('area-emp-lede').textContent = a.empLede;
+  document.getElementById('area-emp-links').innerHTML = a.employers.map(e=>`<a class="btn btn-ghost" href="employer.html#${e.id}">${e.label} →</a>`).join('');
+})();
+window.addEventListener('hashchange',()=>location.reload());
+</script>
+</body></html>

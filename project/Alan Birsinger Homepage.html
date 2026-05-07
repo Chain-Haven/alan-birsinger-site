@@ -1,0 +1,2131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Houston Financial Advisor | Alan J. Birsinger — Wealth Management Group</title>
+<meta name="description" content="Houston financial advisor with 20+ years guiding families and retirees. Retirement, investments, and insurance planning. Schedule a complimentary consultation." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Playfair+Display:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="shortcut icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="image-slot.js"></script>
+
+<style>
+:root {
+  --bg: #efece4;
+  --bg-deep: #e7e2d3;
+  --paper: #f6f3ec;
+  --ink: #2a2419;
+  --ink-2: #4a4133;
+  --ink-3: #7a6f5e;
+  --rule: #d9d2c0;
+  --accent: #a8541f;
+  --accent-deep: #8a4015;
+  --accent-soft: #efe0d2;
+  --ok: #4a6a3f;
+
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ───────── Layout primitives ───────── */
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+.wrap-narrow { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+.eyebrow .bullet { color: var(--accent); margin: 0 6px; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0; max-width: 64ch; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  border-bottom: 1px solid var(--ink-2);
+  padding-bottom: 2px;
+}
+.btn-link:hover { color: var(--accent); border-color: var(--accent); }
+
+.rule { height: 1px; background: var(--rule); border: 0; }
+
+/* ───────── Top utility strip ───────── */
+.utility {
+  background: var(--ink);
+  color: #d9d2c0;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+.utility .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  gap: 24px;
+}
+.utility a { color: #e7e2d3; text-decoration: none; }
+.utility a:hover { color: var(--accent); }
+.utility .left { display: flex; gap: 22px; align-items: center; }
+.utility .left .sep { width: 1px; height: 12px; background: #4a4133; }
+.utility .right { display: flex; gap: 22px; align-items: center; font-family: var(--font-mono); font-size: 12px; }
+.utility .right .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+/* ───────── Header / nav ───────── */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(239, 236, 228, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+header.site .wrap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.brand .mark {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  flex-shrink: 0;
+  padding: 5px;
+  overflow: hidden;
+}
+.brand .mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+footer.site .brand .mark {
+  background: var(--paper);
+  border-color: transparent;
+}
+.brand-text { display: flex; flex-direction: column; gap: 2px; }
+.brand .name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.brand .sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+nav.primary {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+nav.primary a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+nav.primary a:hover { color: var(--accent); }
+nav.primary .has-caret::after {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  margin-left: 7px;
+  opacity: .6;
+}
+.head-cta { display: flex; gap: 12px; align-items: center; }
+.phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+}
+.phone-pill svg { width: 14px; height: 14px; color: var(--accent); }
+.phone-pill:hover { color: var(--accent); }
+
+/* ───────── Hero ───────── */
+.hero {
+  position: relative;
+  padding: 88px 0 96px;
+  overflow: hidden;
+}
+.hero .bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(42,36,25,.04) 1px, transparent 1px);
+  background-size: calc((100% - 64px) / 12) 100%;
+  background-position: 32px 0;
+  pointer-events: none;
+}
+.hero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 72px;
+  align-items: end;
+}
+.hero .copy { padding-bottom: 8px; }
+.hero .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.hero .eyebrow .line { display: inline-block; width: 36px; height: 1px; background: var(--accent); }
+.hero h1 {
+  margin-top: 0;
+  font-size: clamp(44px, 5.6vw, 78px);
+  font-weight: 350;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.hero .lede {
+  margin-top: 28px;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+.hero .ctas {
+  display: flex;
+  gap: 14px;
+  margin-top: 36px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero .ctas .meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-left: 4px;
+  border-left: 1px solid var(--rule);
+  margin-left: 8px;
+  padding: 4px 0 4px 16px;
+  line-height: 1.3;
+}
+
+.hero .visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  min-height: 600px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--bg-deep) 100%);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.hero .visual image-slot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero .visual .badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(246, 243, 236, .94);
+  backdrop-filter: blur(6px);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-left: 2px solid var(--accent);
+}
+.hero .visual .badge .num {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.hero .visual .badge .lbl {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.35;
+  max-width: 28ch;
+}
+
+/* trust strip */
+.trust-strip {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.trust-strip .wrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.trust-strip .item {
+  padding: 26px 24px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.trust-strip .item:last-child { border-right: 0; }
+.trust-strip .num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.trust-strip .lbl {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 6px;
+}
+.trust-strip .external {
+  font-size: 13.5px;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.trust-strip .external svg { width: 11px; height: 11px; }
+
+/* ───────── Section header ───────── */
+.section { padding: 96px 0; }
+.section-head {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.section-head .left .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.section-head .left .eyebrow .num {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+}
+.section-head h2 {
+  font-size: clamp(32px, 3.6vw, 50px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+}
+.section-head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.section-head .right {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 54ch;
+  padding-bottom: 6px;
+}
+
+/* ───────── About strip ───────── */
+.about {
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.about .wrap {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 72px;
+  align-items: center;
+}
+.about .photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  min-height: 600px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--bg-deep) 100%);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.about .photo image-slot { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.about .body h2 {
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.15;
+  font-weight: 400;
+  margin-top: 16px;
+}
+.about .body .quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 28px 0;
+  padding-left: 22px;
+  border-left: 2px solid var(--accent);
+  font-weight: 400;
+  max-width: 50ch;
+}
+.about .body p {
+  color: var(--ink-2);
+  font-size: 16.5px;
+  margin-bottom: 16px;
+}
+.about .credentials {
+  display: flex;
+  gap: 32px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+.about .credentials .c {
+  flex: 1;
+  min-width: 140px;
+}
+.about .credentials .c .lbl {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.about .credentials .c .val {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+/* ───────── Who I help ───────── */
+.who-section {
+  padding-bottom: 0;
+}
+.who-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 16px;
+}
+.who-cards .card {
+  padding: 40px 32px 36px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+.who-cards .card:last-child { border-right: 0; }
+.who-cards .card .num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.who-cards .card .num::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.who-cards .card h3 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.012em;
+}
+.who-cards .card p {
+  color: var(--ink-2);
+  font-size: 15.5px;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.who-cards .card ul {
+  margin: 0; padding: 0; list-style: none;
+  margin-top: auto;
+}
+.who-cards .card ul li {
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 14.5px;
+  color: var(--ink-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color .15s ease;
+}
+.who-cards .card ul li:first-child { border-top: 0; padding-top: 0; }
+.who-cards .card ul li::after {
+  content: "→";
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* ───────── Services grid ───────── */
+.services-section { background: var(--bg); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.services-grid a.cell {
+  padding: 36px 32px 36px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--paper);
+  position: relative;
+  display: block;
+  transition: background .15s ease;
+}
+.services-grid a.cell:hover { background: var(--bg-deep); }
+.services-grid a.cell:hover .arrow { transform: translateX(4px); color: var(--accent); }
+.services-grid .icon {
+  width: 32px; height: 32px;
+  margin-bottom: 22px;
+  color: var(--accent);
+}
+.services-grid h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 500;
+  font-family: var(--font-display);
+  margin-bottom: 8px;
+}
+.services-grid p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+.services-grid .arrow {
+  position: absolute;
+  bottom: 28px; right: 28px;
+  font-size: 18px;
+  color: var(--ink-3);
+  transition: transform .2s ease, color .2s ease;
+}
+.services-all {
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.services-all .note {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ───────── Process ───────── */
+.process { background: var(--ink); color: var(--paper); }
+.process .section-head h2 { color: var(--paper); }
+.process .section-head h2 em { color: #e7a06a; }
+.process .section-head .right { color: #c8c1ae; }
+.process .section-head .left .eyebrow { color: #c8c1ae; }
+.process .section-head .left .eyebrow .num { color: #e7a06a; }
+.process .steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid #4a4133;
+}
+.process .step {
+  padding: 36px 28px 36px 0;
+  border-right: 1px solid #4a4133;
+  position: relative;
+}
+.process .step:not(:first-child) { padding-left: 28px; }
+.process .step:last-child { border-right: 0; padding-right: 0; }
+.process .step::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: #e7a06a;
+}
+.process .step:not(:first-child)::before { left: 28px; }
+.process .step .step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #e7a06a;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.process .step h3 {
+  color: var(--paper);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+}
+.process .step p {
+  color: #c8c1ae;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.process .step .duration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #8a7f6c;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed #4a4133;
+}
+
+/* ───────── Employer-plan moat ───────── */
+.employers { background: var(--paper); }
+.employers .section-head { margin-bottom: 36px; }
+.employers .moat-callout {
+  margin-bottom: 36px;
+  padding: 14px 18px;
+  background: var(--bg);
+  border-left: 2px solid var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.employers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.employer {
+  padding: 32px 28px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  position: relative;
+  transition: background .15s ease;
+}
+.employer:hover { background: var(--bg-deep); }
+.employer .logo-slot {
+  width: 100%; height: 96px;
+  background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--rule);
+  margin: -28px -28px 24px;
+  padding: 16px 24px;
+  width: calc(100% + 56px);
+}
+.employer .logo-slot img {
+  max-height: 56px; max-width: 80%;
+  width: auto; height: auto;
+  object-fit: contain;
+  display: block;
+}
+.employer .logo-slot.legacy-mono {
+  width: 72px; height: 72px;
+  display: grid; place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  margin-bottom: 22px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+}
+.employer .logo-slot .lockup {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.employer .logo-slot.dual {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 22px;
+  width: auto;
+  min-width: 96px;
+  padding: 0 14px;
+}
+.employer .logo-slot.dual span { display: inline-block; }
+.employer .logo-slot.dual .sep { font-size: 10px; opacity: .4; font-family: var(--font-mono); align-self: center; padding: 0 1px; }
+.employer .logo-slot::after {
+  content: "◆";
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 6px;
+  color: var(--accent);
+  font-family: var(--font-body);
+}
+.employer h3 {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.employer .tagline {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  flex: 1;
+}
+.employer .focus-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.employer .chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  background: var(--bg);
+  color: var(--ink-2);
+  text-transform: uppercase;
+}
+.employer .corner {
+  position: absolute;
+  top: 24px; right: 24px;
+  font-size: 20px;
+  color: var(--ink-3);
+}
+.employer:hover .corner { color: var(--accent); }
+.employers-disclaimer {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  max-width: 78ch;
+  font-style: italic;
+}
+
+/* ───────── Geo strip ───────── */
+.geo {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 60px 0;
+  background: var(--bg);
+}
+.geo .wrap { display: grid; grid-template-columns: auto 1fr; gap: 56px; align-items: center; }
+.geo .label .eyebrow { margin-bottom: 10px; }
+.geo .label h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.15;
+  max-width: 18ch;
+}
+.geo .neighborhoods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.geo .pill {
+  padding: 10px 16px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .15s ease;
+}
+.geo .pill::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  display: inline-block;
+}
+.geo .pill:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+
+/* ───────── Insights ───────── */
+.insights .articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 8px;
+}
+.article {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+.article .thumb {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  margin-bottom: 22px;
+  position: relative;
+}
+.article .thumb image-slot { position: absolute; inset: 0; }
+.article .meta-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+}
+.article .meta-row .topic { color: var(--accent); }
+.article .meta-row .dot { width: 3px; height: 3px; background: var(--ink-3); border-radius: 50%; }
+.article h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.article p {
+  font-size: 14.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+.article:hover h3 { color: var(--accent); }
+
+/* ───────── Final CTA ───────── */
+.final-cta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(232, 226, 211, 0.04) 1px, transparent 1px);
+  background-size: calc((100% - 64px) / 12) 100%;
+  background-position: 32px 0;
+  pointer-events: none;
+}
+.final-cta .wrap { position: relative; }
+.final-cta .grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+.final-cta h2 {
+  color: var(--paper);
+  font-size: clamp(36px, 4.4vw, 60px);
+  line-height: 1.05;
+  font-weight: 350;
+  letter-spacing: -0.018em;
+  margin-bottom: 28px;
+}
+.final-cta h2 em { color: #e7a06a; font-style: italic; font-weight: 400; }
+.final-cta p { color: #c8c1ae; font-size: 17px; line-height: 1.6; max-width: 50ch; margin-bottom: 32px; }
+.final-cta .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.final-cta .btn-primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.final-cta .btn-primary:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+.final-cta .btn-ghost { color: var(--paper); border-color: #6a6151; }
+.final-cta .btn-ghost:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+.teams-card {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.teams-card .teams-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: #4b53bc;
+  color: #fff;
+}
+.teams-card .teams-head .teams-logo {
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.teams-card .teams-head .teams-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.teams-card .teams-head .teams-sub {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+.teams-card .body { padding: 28px; }
+.teams-card .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.teams-card h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  letter-spacing: -0.012em;
+}
+.teams-card .meet-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 14px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 18px;
+}
+.teams-card .meet-meta .key {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.teams-card .meet-meta .val {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.teams-card .meet-meta .val.muted { color: var(--ink-2); font-weight: 400; }
+.teams-card .meet-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.teams-card .meet-actions .btn-teams {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #4b53bc;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 2px;
+  transition: background .15s ease;
+}
+.teams-card .meet-actions .btn-teams:hover { background: #383fa0; }
+.teams-card .meet-actions .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--bg);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid var(--rule);
+}
+.teams-card .meet-actions .btn-secondary:hover { border-color: var(--ink); }
+.teams-card .help {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+.teams-card .availability {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.teams-card .slot-pill {
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink-2);
+  transition: all .15s ease;
+}
+.teams-card .slot-pill:hover { border-color: var(--ink); color: var(--ink); }
+.teams-card .slot-pill.featured { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ───────── Footer ───────── */
+footer.site {
+  background: var(--bg-deep);
+  color: var(--ink-2);
+  border-top: 1px solid var(--rule);
+  padding: 72px 0 32px;
+  font-size: 14px;
+}
+footer.site .wrap-narrow { padding: 0 32px; max-width: 1240px; }
+footer.site .top {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr;
+  gap: 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+}
+footer.site .brand {
+  color: var(--ink);
+}
+footer.site .brand .mark { background: var(--paper); border-color: var(--rule); }
+footer.site .brand .name { color: var(--ink); }
+footer.site .brand .sub { color: var(--ink-3); }
+
+footer.site .col h4 {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+footer.site .col ul { list-style: none; padding: 0; margin: 0; }
+footer.site .col li { margin-bottom: 10px; }
+footer.site .col a { color: var(--ink-2); text-decoration: none; }
+footer.site .col a:hover { color: var(--ink); }
+footer.site .contact-block { margin-top: 22px; font-size: 14px; line-height: 1.7; color: var(--ink-2); }
+footer.site .contact-block a { color: var(--ink); text-decoration: none; }
+footer.site .contact-block .row { display: flex; gap: 8px; align-items: baseline; }
+footer.site .contact-block .lbl { color: var(--ink-3); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; min-width: 56px; }
+
+/* compliance block */
+.compliance {
+  padding: 36px 0 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.compliance h4 {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+.compliance .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 56px;
+}
+.compliance p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: none;
+}
+.compliance p strong { color: var(--ink); font-weight: 600; }
+.compliance a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 2px; }
+.compliance .brokercheck {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.compliance .brokercheck:hover { border-color: var(--accent); }
+.compliance .brokercheck .crd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-deep);
+  letter-spacing: 0.06em;
+}
+.compliance .flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+.compliance .flag::before {
+  content: "";
+  width: 5px; height: 5px;
+  background: var(--accent-deep);
+}
+
+footer.site .colophon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: #8a7f6c;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+footer.site .colophon .links a { color: var(--ink-2); text-decoration: none; margin-left: 18px; }
+footer.site .colophon .links a:hover { color: var(--ink); }
+
+/* ───────── Misc ───────── */
+::selection { background: var(--accent); color: var(--paper); }
+
+/* responsive */
+@media (max-width: 980px) {
+  .hero .wrap, .about .wrap, .section-head, .final-cta .grid, .geo .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .trust-strip .wrap, .who-cards, .services-grid, .process .steps, .employers-grid, .insights .articles, footer.site .top, .compliance .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  nav.primary { display: none; }
+  header.site .wrap { grid-template-columns: auto auto; }
+  .section { padding: 64px 0; }
+}
+@media (max-width: 640px) {
+  .trust-strip .wrap, .who-cards, .services-grid, .process .steps, .employers-grid, .insights .articles, footer.site .top, .compliance .grid {
+    grid-template-columns: 1fr;
+  }
+  .trust-strip .item, .process .step, .who-cards .card { border-right: 0; border-bottom: 1px solid var(--rule); }
+}
+
+/* image-slot styling */
+image-slot {
+  --is-bg: #e7e2d3;
+  --is-fg: #7a6f5e;
+  --is-border: #d9d2c0;
+}
+.hero .visual image-slot,
+.about .photo image-slot {
+  --is-bg: transparent;
+  --is-border: transparent;
+}
+</style>
+</head>
+<body>
+
+<!-- Utility strip -->
+<div class="utility">
+  <div class="wrap">
+    <div class="left">
+      <span><a href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">FINRA BrokerCheck — CRD #4213860 ↗</a></span>
+      <span class="sep"></span>
+      <span>Member FINRA &amp; SIPC</span>
+    </div>
+    <div class="right">
+      <span class="dot"></span>
+      <span>Serving the greater Houston area &amp; Texas-wide</span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="Alan Birsinger Homepage.html">
+      <span class="mark"><img src="wmg-icon.png" alt="Wealth Management Group" /></span>
+      <span class="brand-text">
+        <span class="name">Alan&nbsp;J.&nbsp;Birsinger</span>
+        <span class="sub">Wealth Management Group</span>
+      </span>
+    </a>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a class="has-caret" href="#services">Services</a>
+      <a class="has-caret" href="#employers">Employer Plans</a>
+      <a class="has-caret" href="#serving">Areas Served</a>
+      <a href="#insights">Insights</a>
+      <a href="#process">Process</a>
+    </nav>
+    <div class="head-cta">
+      <a class="phone-pill" href="tel:+12817865159">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (281) 786-5159
+      </a>
+      <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="bg-grid"></div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="eyebrow"><span class="line"></span> Houston, Texas <span class="bullet">·</span> Est. 2004</div>
+      <h1>Confidence in your<br/>financial future <em>starts<br/>with a careful plan.</em></h1>
+      <p class="lede">
+        I'm Alan Birsinger — a Houston-based financial advisor. For more than two decades I've helped retirees,
+        pre-retirees, business owners, and families decide what to do with their savings, their pensions, and the
+        years ahead.
+      </p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="contact.html">
+          Schedule a Complimentary Consultation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="tel:+12817865159">Call (281) 786-5159</a>
+        <span class="meta">No obligation.<br/>Typically 45 minutes.</span>
+      </div>
+    </div>
+    <div class="visual">
+      <image-slot id="hero-portrait" placeholder="Portrait of Alan — 4:5, professional but warm" shape="rect" fit="cover" position="50% 25%"></image-slot>
+      <div class="badge">
+        <div class="num">20<span style="color:var(--accent);">+</span></div>
+        <div class="lbl">Years guiding Houston families through every market and life stage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="wrap">
+    <div class="item">
+      <div class="num">20+ yrs</div>
+      <div class="lbl">In the financial industry</div>
+    </div>
+    <div class="item">
+      <div class="num">B.S. · M.S.</div>
+      <div class="lbl">Finance — undergraduate &amp; graduate</div>
+    </div>
+    <div class="item">
+      <div class="num">Independent</div>
+      <div class="lbl">Boutique advisory practice</div>
+    </div>
+    <div class="item">
+      <div class="num">Houston</div>
+      <div class="lbl">In-person · Virtual where licensed</div>
+    </div>
+    <div class="item" style="background:var(--bg-deep);">
+      <div class="lbl">Verify Background</div>
+      <div class="num" style="font-size:18px; margin-top:4px;">CRD #4213860</div>
+      <a class="external" href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">
+        FINRA BrokerCheck
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- About strip -->
+<section class="about" id="about">
+  <div class="wrap" style="padding-top:96px; padding-bottom:96px;">
+    <div class="photo">
+      <image-slot id="alan-portrait" placeholder="Alan — environmental portrait, 3:4" shape="rect" fit="cover" position="50% 25%"></image-slot>
+    </div>
+    <div class="body">
+      <div class="eyebrow">01 / About Alan</div>
+      <h2>A senior advisor who treats your life savings as<br/>a personal trust.</h2>
+      <div class="quote">
+        "Clients are entrusting me with their life savings. I treat that as a serious personal responsibility —
+        acting with integrity, communicating clearly, and treating every client with respect."
+      </div>
+      <p>
+        Alan has spent his career helping Houstonians make calm, considered decisions about money. He earned both
+        a Bachelor of Science and a Master of Science in Finance, and has practiced in Houston for more than 20
+        years.
+      </p>
+      <p>
+        He lives in Houston with his wife and two children. When he isn't with clients, you'll find him on the
+        golf course, on the soccer pitch, or under the hood of an antique car.
+      </p>
+      <a class="btn-link" href="#about">Read Alan's full bio
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <div class="credentials">
+        <div class="c">
+          <div class="lbl">Education</div>
+          <div class="val">B.S. &amp; M.S.<br/><span style="color:var(--ink-3); font-size:14px; font-family:var(--font-body);">in Finance</span></div>
+        </div>
+        <div class="c">
+          <div class="lbl">Experience</div>
+          <div class="val">20+ years<br/><span style="color:var(--ink-3); font-size:14px; font-family:var(--font-body);">in the industry</span></div>
+        </div>
+        <div class="c">
+          <div class="lbl">Firm</div>
+          <div class="val">WMG, Inc.<br/><span style="color:var(--ink-3); font-size:14px; font-family:var(--font-body);">independent</span></div>
+        </div>
+        <div class="c">
+          <div class="lbl">Verify</div>
+          <div class="val" style="font-family:var(--font-mono); font-size:14px;">CRD #4213860<br/><a style="color:var(--accent); text-decoration:none;" href="https://brokercheck.finra.org/individual/summary/4213860">BrokerCheck ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who I Help -->
+<section class="section who-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">02</span> / Who I Help</div>
+        <h2>Three kinds of households<br/><em>I work with most often.</em></h2>
+      </div>
+      <div class="right">
+        Most of my work is with people in or near retirement, with business owners thinking past the next decade,
+        and with Houston families building toward both. The conversations look different — but the discipline is
+        the same.
+      </div>
+    </div>
+
+    <div class="who-cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Pre-Retirees<br/>&amp; Retirees</h3>
+      <p>You're 5–10 years out, or already there. The questions get specific: when to take Social Security, how to draw income, what to do with the pension.</p>
+      <ul>
+        <li>Retirement income planning</li>
+        <li>Pension lump sum decisions</li>
+        <li>401(k) &amp; IRA rollovers</li>
+        <li>Social Security &amp; Medicare</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="num">02</div>
+      <h3>Business<br/>Owners</h3>
+      <p>You've built something. Now retirement plan design, tax efficiency, succession, and key-person protection deserve the same care.</p>
+      <ul>
+        <li>Qualified retirement plans</li>
+        <li>Business succession</li>
+        <li>Buy-sell &amp; key-person</li>
+        <li>Personal investment management</li>
+      </ul>
+    </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Houston<br/>Families</h3>
+        <p>Two careers, kids in school, aging parents. Clarity comes from a single plan that holds it all — and someone to update it as life shifts.</p>
+        <ul>
+          <li>Comprehensive financial plans</li>
+          <li>Education funding (529)</li>
+          <li>Life &amp; long-term care insurance</li>
+          <li>Estate planning coordination</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services grid -->
+<section class="section services-section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">03</span> / How I Help</div>
+        <h2>The work, plainly described.<br/><em>Fifteen ways I help, in everyday language.</em></h2>
+      </div>
+      <div class="right">
+        Each service page below explains who it's for, what's included, how the process works, and what to expect.
+        No jargon, no funnels.
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <a class="cell" href="service.html#retirement-planning-houston">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 26h24M8 26V14l8-6 8 6v12M12 26v-7h8v7"/></svg>
+        <h3>Retirement Planning</h3>
+        <p>Mapping the years before, during, and after the work-stops day.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#retirement-income-planning">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 24l6-8 6 4 8-12 4 6"/><path d="M4 28h24"/></svg>
+        <h3>Retirement Income Planning</h3>
+        <p>Turning a portfolio into a paycheck you can count on.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#401k-rollover-houston">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 16a10 10 0 0118-6"/><path d="M22 4v6h-6M26 16a10 10 0 01-18 6"/><path d="M10 28v-6h6"/></svg>
+        <h3>401(k) Rollovers</h3>
+        <p>Decisions when you change jobs or retire from a Houston employer.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#ira-rollover-houston">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="24" height="18" rx="1"/><path d="M4 14h24M10 4v8M22 4v8"/></svg>
+        <h3>IRA Rollovers</h3>
+        <p>Consolidating retirement accounts with care and clear paperwork.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#pension-lump-sum-decisions">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4l12 6v6c0 7-5 13-12 16-7-3-12-9-12-16v-6l12-6z"/><path d="M11 16l4 4 8-8"/></svg>
+        <h3>Pension Lump Sum vs. Annuity</h3>
+        <p>One of the most consequential decisions of a working life.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#comprehensive-financial-planning">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="24" height="24"/><path d="M4 12h24M12 4v24M20 4v24"/></svg>
+        <h3>Comprehensive Financial Planning</h3>
+        <p>One plan that ties retirement, taxes, insurance, and estate together.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#investment-management-houston">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="12"/><path d="M16 4v12l8 8"/></svg>
+        <h3>Investment Management</h3>
+        <p>Allocations and rebalancing held to a written plan, not the news cycle.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#social-security-and-medicare-planning">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l4 2"/></svg>
+        <h3>Social Security &amp; Medicare</h3>
+        <p>Claiming strategy, IRMAA brackets, and the timing decisions that matter.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#annuities-fixed-and-variable">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 28h24M6 28V12l10-6 10 6v16M14 28v-8h4v8"/></svg>
+        <h3>Annuities — Fixed &amp; Variable</h3>
+        <p>Where they fit, where they don't, and what to ask before you buy.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#long-term-care-insurance-houston">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 28s-10-6-10-14a6 6 0 0110-4 6 6 0 0110 4c0 8-10 14-10 14z"/></svg>
+        <h3>Long-Term Care Insurance</h3>
+        <p>Honest review of policies, alternatives, and the cost of waiting.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#life-insurance-planning">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14l12-10 12 10v14H4z"/><path d="M14 28v-8h4v8"/></svg>
+        <h3>Life Insurance Planning</h3>
+        <p>Right-sizing coverage for income, debts, and estate goals.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a class="cell" href="service.html#education-funding-529">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l12-6 12 6-12 6L4 12z"/><path d="M10 14v8c0 2 3 4 6 4s6-2 6-4v-8"/></svg>
+        <h3>Education Funding &amp; 529s</h3>
+        <p>Plan structure, tax considerations, and choosing among options.</p>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="services-all">
+      <span class="note">+ 3 more services — Asset Allocation · Qualified Retirement Plans · Business Planning</span>
+      <a class="btn btn-ghost" href="#services">See all services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">04</span> / How We Work Together</div>
+        <h2>A four-step process,<br/>built for the long term.</h2>
+      </div>
+      <div class="right">
+        Most relationships start with a conversation, not paperwork. The first meeting is a chance to understand
+        your situation and decide together whether working together makes sense.
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Discover</h3>
+        <p>A no-obligation fact-finding conversation. We talk about what you have, what you owe, what concerns you, and what you'd like the next chapter to look like.</p>
+        <div class="duration">~ 45 min · in person or virtual</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Plan &amp; Design</h3>
+        <p>I review the documents, model scenarios, and develop a written set of recommendations sized to your goals, risk capacity, and timeline.</p>
+        <div class="duration">~ 2–3 weeks</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>Implement</h3>
+        <p>Paperwork handled. Accounts opened or transferred. Beneficiaries reviewed. Insurance and other moving parts coordinated with your CPA and attorney as needed.</p>
+        <div class="duration">~ 30 days, typical</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 04</div>
+        <h3>Monitor</h3>
+        <p>Regular reviews and life-event check-ins. Markets move; lives shift; the plan gets updated. The goal is a plan that stays current — not one that ages on a shelf.</p>
+        <div class="duration">Ongoing · annually at minimum</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Employer plan moat -->
+<section class="section employers" id="employers">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">05</span> / Houston Employer Plans</div>
+        <h2>Specialized guidance for<br/>Houston's largest employers.</h2>
+      </div>
+      <div class="right">
+        Many of my clients are current or former employees of Houston's energy majors and NASA's Johnson Space
+        Center. The retirement plans are technical, the decisions are consequential, and the windows are short.
+        I help you think through them — independently.
+      </div>
+    </div>
+
+    <div class="moat-callout">
+      <span style="color:var(--accent); font-weight:600;">▲</span>
+      Independent advisor — not affiliated with, endorsed by, or sponsored by any employer listed below.
+    </div>
+
+    <div class="employers-grid">
+      <a class="employer" href="employer.html#exxonmobil">
+        <div class="logo-slot"><img src="assets/logos/exxonmobil.png" alt="ExxonMobil" loading="lazy" /></div>
+        <h3>ExxonMobil</h3>
+        <p class="tagline">Pension lump sum vs. annuity, Savings Plan rollovers, NUA on company stock.</p>
+        <div class="focus-row">
+          <span class="chip">Pension</span>
+          <span class="chip">Savings Plan</span>
+          <span class="chip">NUA</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+      <a class="employer" href="employer.html#chevron">
+        <div class="logo-slot"><img src="assets/logos/chevron.png" alt="Chevron" loading="lazy" /></div>
+        <h3>Chevron</h3>
+        <p class="tagline">ESIP and Retirement Restoration Plan rollovers. Retiree income strategy.</p>
+        <div class="focus-row">
+          <span class="chip">ESIP</span>
+          <span class="chip">RRP</span>
+          <span class="chip">Income</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+      <a class="employer" href="employer.html#shell">
+        <div class="logo-slot"><img src="assets/logos/shell.png" alt="Shell" loading="lazy" /></div>
+        <h3>Shell</h3>
+        <p class="tagline">Pension election review, Provident Fund rollover, post-retirement allocation.</p>
+        <div class="focus-row">
+          <span class="chip">Pension</span>
+          <span class="chip">PF</span>
+          <span class="chip">Allocation</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+      <a class="employer" href="employer.html#slb">
+        <div class="logo-slot"><img src="assets/logos/slb.png" alt="Schlumberger / SLB" loading="lazy" /></div>
+        <h3>SLB (Schlumberger)</h3>
+        <p class="tagline">Long-Term Investment &amp; Savings Plan rollovers. Stock incentive coordination.</p>
+        <div class="focus-row">
+          <span class="chip">LTISP</span>
+          <span class="chip">Equity</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+      <a class="employer" href="employer.html#phillips66">
+        <div class="logo-slot"><img src="assets/logos/phillips66.png" alt="Phillips 66" loading="lazy" /></div>
+        <h3>Phillips 66 · ConocoPhillips · BP</h3>
+        <p class="tagline">Energy-major plan reviews and rollover strategy across employers.</p>
+        <div class="focus-row">
+          <span class="chip">Multi-Employer</span>
+          <span class="chip">Rollover</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+      <a class="employer" href="employer.html#nasa-jsc">
+        <div class="logo-slot"><img src="assets/logos/nasa.png" alt="NASA Johnson Space Center" loading="lazy" /></div>
+        <h3>NASA · Johnson Space Center</h3>
+        <p class="tagline">FERS basics, TSP allocation, and the federal-to-private retirement bridge.</p>
+        <div class="focus-row">
+          <span class="chip">FERS</span>
+          <span class="chip">TSP</span>
+          <span class="chip">Federal</span>
+        </div>
+        <span class="corner">→</span>
+      </a>
+    </div>
+
+    <p class="employers-disclaimer">
+      Plan terms change. Always consult your current plan documents and the plan administrator before making any
+      decisions. Trademarks and logos are the property of their respective owners and used only to identify the
+      plans of clients I commonly work with.
+    </p>
+  </div>
+</section>
+
+<!-- Geo strip -->
+<section class="geo" id="serving">
+  <div class="wrap">
+    <div class="label">
+      <div class="eyebrow"><span class="bullet" style="color:var(--accent)">●</span> Areas Served</div>
+      <h3>Houston metro &amp; surrounding communities.</h3>
+    </div>
+    <div class="neighborhoods">
+      <a class="pill" href="area.html#the-woodlands">The Woodlands</a>
+      <a class="pill" href="area.html#sugar-land">Sugar Land</a>
+      <a class="pill" href="area.html#katy">Katy</a>
+      <a class="pill" href="area.html#memorial">Memorial</a>
+      <a class="pill" href="area.html#kingwood">Kingwood</a>
+      <a class="pill" href="area.html#energy-corridor">Energy Corridor</a>
+      <a class="pill" href="area.html#clear-lake">Clear Lake</a>
+      <a class="pill" href="Alan Birsinger Homepage.html" style="background:var(--ink); color:var(--paper); border-color:var(--ink);">All of Houston →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Insights -->
+<section class="section insights" id="insights">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="left">
+        <div class="eyebrow"><span class="num">06</span> / Insights</div>
+        <h2>Plain-English notes<br/><em>on decisions clients face.</em></h2>
+      </div>
+      <div class="right">
+        Educational writing, reviewed for accuracy. Not personalized advice — for that, we should talk.
+      </div>
+    </div>
+
+    <div class="articles">
+      <a class="article" href="insight.html#exxonmobil-pension-lump-sum-vs-annuity">
+        <div class="thumb">
+          <image-slot id="art-1" placeholder="Editorial illustration · 16:10" shape="rect"></image-slot>
+        </div>
+        <div class="meta-row">
+          <span class="topic">Pensions</span>
+          <span class="dot"></span>
+          <span>9 min read</span>
+          <span class="dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3>ExxonMobil pension: lump sum vs. annuity — the questions to ask first.</h3>
+        <p>Before running the numbers, walk through the seven questions that change the answer for most retirees.</p>
+      </a>
+      <a class="article" href="insight.html#texas-no-state-income-tax-retirement">
+        <div class="thumb">
+          <image-slot id="art-2" placeholder="Houston skyline / texture · 16:10" shape="rect"></image-slot>
+        </div>
+        <div class="meta-row">
+          <span class="topic">Retirement</span>
+          <span class="dot"></span>
+          <span>7 min read</span>
+          <span class="dot"></span>
+          <span>Feb 2026</span>
+        </div>
+        <h3>How Texas's no-state-income-tax status actually affects retirement planning.</h3>
+        <p>The advantage is real — but smaller and more nuanced than most retirees assume. Here's where it shows up.</p>
+      </a>
+      <a class="article" href="insight.html#medicare-irmaa-brackets">
+        <div class="thumb">
+          <image-slot id="art-3" placeholder="Editorial · 16:10" shape="rect"></image-slot>
+        </div>
+        <div class="meta-row">
+          <span class="topic">Medicare</span>
+          <span class="dot"></span>
+          <span>6 min read</span>
+          <span class="dot"></span>
+          <span>Feb 2026</span>
+        </div>
+        <h3>The Medicare IRMAA income brackets that surprise retirees.</h3>
+        <p>The tax-bracket rules retirees know don't apply here. A short guide to the cliffs and how to plan around them.</p>
+      </a>
+    </div>
+
+    <div style="margin-top:48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase;">12 more articles in the archive</span>
+      <a class="btn btn-ghost" href="#insights">All insights →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="schedule">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow" style="color:#c8c1ae;"><span class="bullet" style="color:#e7a06a;">●</span> Get started</div>
+        <h2 style="margin-top:18px;">Let's talk about<br/>what's <em>on your mind.</em></h2>
+        <p>
+          The first conversation is complimentary, no obligation, and roughly 45 minutes. We'll cover what you have,
+          what concerns you, and whether working together makes sense. No pitch, no pressure.
+        </p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
+          <a class="btn btn-ghost" href="tel:+12817865159">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            (281) 786-5159
+          </a>
+        </div>
+      </div>
+      <div class="teams-card">
+        <div class="teams-head">
+          <div class="teams-logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+              <rect x="3" y="8" width="15" height="16" rx="2" fill="#fff" opacity="0.95"/>
+              <text x="10.5" y="20" text-anchor="middle" fill="#4b53bc" font-family="Arial, sans-serif" font-size="12" font-weight="700">T</text>
+              <circle cx="24" cy="12" r="4" fill="#fff" opacity="0.85"/>
+              <path d="M20 18h8v6a3 3 0 01-3 3h-2a3 3 0 01-3-3v-6z" fill="#fff" opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="teams-title">Microsoft Teams Meeting</div>
+          <div class="teams-sub">Secure · Video</div>
+        </div>
+        <div class="body">
+          <div class="label">Book a 45-minute introductory call</div>
+          <h3>Pick a time that works — I'll send a Teams invite.</h3>
+
+          <div class="availability">
+            <a class="slot-pill featured" href="#">Thu May 14 · 10:30 AM</a>
+            <a class="slot-pill" href="#">Fri May 15 · 9:00 AM</a>
+            <a class="slot-pill" href="#">Mon May 19 · 1:00 PM</a>
+            <a class="slot-pill" href="#">Tue May 20 · 3:30 PM</a>
+            <a class="slot-pill" href="#">Wed May 21 · 9:00 AM</a>
+            <a class="slot-pill" href="#">Thu May 28 · 2:00 PM</a>
+          </div>
+
+          <div class="meet-meta">
+            <span class="key">Format</span><span class="val">Video call · in-person available in Houston</span>
+            <span class="key">Duration</span><span class="val">45 minutes</span>
+            <span class="key">Cost</span><span class="val">Complimentary · No obligation</span>
+            <span class="key">Provider</span><span class="val muted">Microsoft Bookings + Teams · pending compliance review</span>
+          </div>
+
+          <div class="meet-actions">
+            <a class="btn-teams" href="https://outlook.office.com/bookwithme/" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Open Microsoft Bookings
+            </a>
+            <a class="btn-secondary" href="tel:+12817865159">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Call instead
+            </a>
+          </div>
+
+          <div class="help">All times Central. After you choose, you'll get a Microsoft Teams calendar invite with a join link — no app required.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap-narrow">
+
+    <div class="top">
+      <div>
+        <a class="brand" href="Alan Birsinger Homepage.html">
+          <span class="mark"><img src="wmg-icon.png" alt="Wealth Management Group" /></span>
+          <span class="brand-text">
+            <span class="name">Alan&nbsp;J.&nbsp;Birsinger</span>
+            <span class="sub">Wealth Management Group, Inc.</span>
+          </span>
+        </a>
+        <div class="contact-block">
+          <div class="row"><span class="lbl">Phone</span><a href="tel:+12817865159">(281) 786-5159</a></div>
+          <div class="row"><span class="lbl">Email</span><a href="mailto:alan.birsinger@wealthmanagementgroup-inc.com">alan.birsinger@wealthmanagementgroup-inc.com</a></div>
+          <div class="row"><span class="lbl">Office</span>Greater Houston Area, TX</div>
+          <div class="row"><span class="lbl">Hours</span>Mon–Fri · 9 AM – 5 PM CT</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="service.html#retirement-planning-houston">Retirement Planning</a></li>
+          <li><a href="service.html#401k-rollover-houston">401(k) Rollovers</a></li>
+          <li><a href="service.html#pension-lump-sum-decisions">Pension Decisions</a></li>
+          <li><a href="service.html#investment-management-houston">Investment Management</a></li>
+          <li><a href="service.html#social-security-and-medicare-planning">Social Security &amp; Medicare</a></li>
+          <li><a href="#services">All services →</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Employer Plans</h4>
+        <ul>
+          <li><a href="employer.html#exxonmobil">ExxonMobil</a></li>
+          <li><a href="employer.html#chevron">Chevron</a></li>
+          <li><a href="employer.html#shell">Shell</a></li>
+          <li><a href="employer.html#slb">SLB</a></li>
+          <li><a href="employer.html#nasa-jsc">NASA / JSC</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>About &amp; Resources</h4>
+        <ul>
+          <li><a href="#about">About Alan</a></li>
+          <li><a href="#process">My Process</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Schedule a Call</a></li>
+          <li><a href="disclosures.html">Disclosures</a></li>
+          <li><a href="about-alan.html">About Alan</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Compliance disclosures -->
+    <div class="compliance" id="disclosures">
+      <h4>Important Disclosures</h4>
+
+      <a class="brokercheck" href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Check the background of this investment professional on FINRA's BrokerCheck.
+        <span class="crd">CRD #4213860 ↗</span>
+      </a>
+
+      <div class="grid">
+        <p>
+          <strong>Securities &amp; Advisory Services.</strong> Securities and advisory services offered through
+          <span style="border-bottom:1px dashed #6a6151;">{{TODO: VERIFY VIA BROKERCHECK — Broker-Dealer Name}}</span>,
+          a Registered Investment Adviser. Member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> &amp;
+          <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>.
+          <span class="flag">Compliance review</span>
+        </p>
+
+        <p>
+          <strong>State Registration.</strong> The financial professional associated with this site may only
+          discuss and/or transact securities business with residents of the following states:
+          <span style="border-bottom:1px dashed #6a6151;">{{TODO: VERIFY — full list of registered states; Texas at minimum}}</span>.
+          <span class="flag">Verify via BrokerCheck</span>
+        </p>
+
+        <p>
+          <strong>General Information Disclaimer.</strong> The content on this site is for informational purposes
+          only and is not intended as tax or legal advice. Nothing on this site is a solicitation in any state
+          where the financial professional is not registered. Investing involves risk including possible loss of
+          principal; past performance is not indicative of future results.
+        </p>
+
+        <p>
+          <strong>Hypothetical Illustrations.</strong> Any retirement projections or calculator output presented
+          here are hypothetical illustrations, not guarantees of future results. Annuity guarantees are subject to
+          the claims-paying ability of the issuing insurance company. Insurance products are offered through
+          licensed insurance agents; availability varies by state.
+        </p>
+
+        <p style="grid-column: 1 / -1;">
+          <strong>Form CRS &amp; Privacy.</strong>
+          <a href="#disclosures">Form CRS / Relationship Summary</a> ·
+          <a href="#disclosures">ADV Part 2 / Brochure</a> ·
+          <a href="privacy.html">Privacy Notice (Reg S-P)</a> ·
+          <a href="#disclosures">Full Disclosures</a> ·
+          <a href="accessibility.html">Accessibility</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <div>© 2026 Alan J. Birsinger · Wealth Management Group, Inc. · All rights reserved.</div>
+      <div class="links">
+        <a href="sitemap.html">Sitemap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#disclosures">Disclosures</a>
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Calendar stub population -->
+<script>
+(() => {
+  const grid = document.getElementById('cal-grid');
+  if (!grid) return;
+  const days = ['S','M','T','W','T','F','S'];
+  days.forEach(d => {
+    const h = document.createElement('div');
+    h.className = 'cal-day muted';
+    h.style.background = 'transparent';
+    h.style.border = '0';
+    h.style.fontFamily = 'var(--font-mono)';
+    h.style.fontSize = '10.5px';
+    h.style.letterSpacing = '0.08em';
+    h.textContent = d;
+    grid.appendChild(h);
+  });
+  // May 2026 starts on a Friday
+  const startOffset = 5;
+  const total = 31;
+  const avail = new Set([7, 8, 11, 12, 14, 15, 19, 20, 21, 26, 27, 28]);
+  const selected = 14;
+  for (let i = 0; i < startOffset; i++) {
+    const c = document.createElement('div');
+    c.className = 'cal-day muted'; c.textContent = '';
+    grid.appendChild(c);
+  }
+  for (let d = 1; d <= total; d++) {
+    const c = document.createElement('div');
+    c.className = 'cal-day';
+    if (avail.has(d)) c.classList.add('avail');
+    if (d === selected) c.classList.add('selected');
+    c.textContent = d;
+    grid.appendChild(c);
+  }
+})();
+</script>
+
+<!-- Tweaks panel -->
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const { useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": "navy-gold",
+  "type": "source-serif",
+  "hero": "asymmetric",
+  "showFlags": true
+}/*EDITMODE-END*/;
+
+const PALETTES = {
+  "ink-orange": { bg:"#efece4", paper:"#f6f3ec", deep:"#e7e2d3", ink:"#2a2419", ink2:"#4a4133", ink3:"#7a6f5e", rule:"#d9d2c0", accent:"#a8541f", accent2:"#8a4015", soft:"#efe0d2" },
+  "navy-gold":  { bg:"#f4f1ea", paper:"#fbf8f1", deep:"#e9e3d5", ink:"#0f2a44", ink2:"#27425a", ink3:"#6b7a89", rule:"#d6d0bf", accent:"#9c7a3a", accent2:"#7e5e22", soft:"#ece2c8" },
+  "forest":     { bg:"#f1efe6", paper:"#f7f4eb", deep:"#e3ddca", ink:"#1f3a2e", ink2:"#37503f", ink3:"#6f7d6f", rule:"#d1cdba", accent:"#c8902a", accent2:"#a07016", soft:"#efe3c4" },
+  "graphite":   { bg:"#eeece5", paper:"#f5f3ec", deep:"#e3dfd0", ink:"#1f1f1f", ink2:"#3c3c3a", ink3:"#7a7873", rule:"#d4d0c0", accent:"#b85a25", accent2:"#9a4318", soft:"#efdcc9" }
+};
+
+const TYPES = {
+  "source-serif": { display: '"Source Serif 4", Georgia, serif', body: '"Inter", system-ui, sans-serif' },
+  "lora":         { display: '"Lora", Georgia, serif',           body: '"Inter", system-ui, sans-serif' },
+  "playfair":     { display: '"Playfair Display", Georgia, serif', body: '"Inter", system-ui, sans-serif' }
+};
+
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  useEffect(() => {
+    const p = PALETTES[tweaks.palette] || PALETTES["ink-orange"];
+    const r = document.documentElement.style;
+    r.setProperty('--bg', p.bg);
+    r.setProperty('--paper', p.paper);
+    r.setProperty('--bg-deep', p.deep);
+    r.setProperty('--ink', p.ink);
+    r.setProperty('--ink-2', p.ink2);
+    r.setProperty('--ink-3', p.ink3);
+    r.setProperty('--rule', p.rule);
+    r.setProperty('--accent', p.accent);
+    r.setProperty('--accent-deep', p.accent2);
+    r.setProperty('--accent-soft', p.soft);
+
+    const t = TYPES[tweaks.type] || TYPES["source-serif"];
+    r.setProperty('--font-display', t.display);
+    r.setProperty('--font-body', t.body);
+
+    document.body.classList.toggle('hero-symmetric', tweaks.hero === 'symmetric');
+    document.body.classList.toggle('flags-hidden', !tweaks.showFlags);
+  }, [tweaks]);
+
+  return (
+    <TweaksPanel title="Tweaks">
+      <TweakSection title="Palette">
+        <TweakColor t={tweaks} setT={setTweak} k="palette"
+          options={[
+            ['#2a2419','#a8541f','#efece4'],
+            ['#0f2a44','#9c7a3a','#f4f1ea'],
+            ['#1f3a2e','#c8902a','#f1efe6'],
+            ['#1f1f1f','#b85a25','#eeece5']
+          ]}
+          labels={['Ink + Orange','Navy + Gold','Forest + Saffron','Graphite']}
+          map={{
+            "0":"ink-orange","1":"navy-gold","2":"forest","3":"graphite",
+            "ink-orange":"0","navy-gold":"1","forest":"2","graphite":"3"
+          }}
+        />
+      </TweakSection>
+      <TweakSection title="Display Type">
+        <TweakRadio t={tweaks} setT={setTweak} k="type"
+          options={['source-serif','lora','playfair']}
+          labels={['Source Serif','Lora','Playfair']}
+        />
+      </TweakSection>
+      <TweakSection title="Compliance Flags">
+        <TweakToggle t={tweaks} setT={setTweak} k="showFlags" label="Show in-design review markers" />
+      </TweakSection>
+    </TweaksPanel>
+  );
+}
+
+// Lightweight wrappers so we can pass index-keyed palette options through TweakColor without it stringifying arrays as values.
+// Easier path: write our own small palette picker since the starter expects flat color arrays per option.
+function TweakColor({ t, setT, k, options, labels, map }) {
+  const current = t[k];
+  const idx = map[current] ?? "0";
+  return (
+    <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:8 }}>
+      {options.map((palette, i) => {
+        const active = String(i) === idx;
+        return (
+          <button key={i}
+            onClick={() => setT(k, map[String(i)])}
+            style={{
+              background:'transparent',
+              border: active ? '1px solid #2a2419' : '1px solid #d9d2c0',
+              padding:8, cursor:'pointer', display:'flex', flexDirection:'column', gap:6,
+              outline: active ? '2px solid rgba(168,84,31,.4)' : 'none',
+              outlineOffset: 1
+            }}>
+            <div style={{ display:'flex', height:18, gap:0 }}>
+              {palette.map((c, j) => (
+                <div key={j} style={{ flex: j === 0 ? 2 : 1, background: c }}/>
+              ))}
+            </div>
+            <div style={{ fontSize:11, fontFamily:'JetBrains Mono, monospace', color:'#4a4133', textAlign:'left' }}>{labels[i]}</div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+</script>
+<div id="tweaks-root"></div>
+
+<style>
+body.flags-hidden .compliance .flag { display: none !important; }
+body.flags-hidden .moat-callout { opacity: .55; }
+</style>
+
+</body>
+</html>

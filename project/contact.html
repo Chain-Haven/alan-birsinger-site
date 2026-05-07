@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact Alan Birsinger | Schedule a Houston Consultation</title>
+<meta name="description" content="Schedule a complimentary, no-obligation consultation with Houston financial advisor Alan J. Birsinger. Microsoft Teams or in person." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
+<style>
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+@media(max-width:980px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.field input,.field textarea,.field select{width:100%;padding:14px 16px;border:1px solid var(--rule);background:var(--paper);font-family:var(--font-body);font-size:16px;color:var(--ink);box-sizing:border-box}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:120px}
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row-2{grid-template-columns:1fr}}
+.contact-meta{background:var(--paper);border:1px solid var(--rule);padding:32px}
+.contact-meta h3{font-family:var(--font-display);font-weight:500;font-size:22px;margin-bottom:18px}
+.contact-meta dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;margin:0}
+.contact-meta dt{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);align-self:center}
+.contact-meta dd{margin:0;font-size:15.5px;color:var(--ink)}
+.contact-meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.teams-block{margin-top:24px;padding:24px;background:var(--accent-soft);border:1px solid var(--accent)}
+.teams-block .ms-mark{display:inline-flex;gap:2px;margin-bottom:10px}
+.teams-block .ms-mark span{width:11px;height:11px;display:inline-block}
+.no-data-notice{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);letter-spacing:.04em;line-height:1.55;margin-top:16px;padding:14px;background:var(--bg-deep);border-left:2px solid var(--accent)}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="wrap"><nav class="crumbs"><a href="Alan Birsinger Homepage.html">Home</a><span class="sep">/</span><span class="here">Contact</span></nav></div>
+
+<section class="page-hero"><div class="wrap">
+  <div class="eyebrow-row"><span class="line"></span><span class="eyebrow">Contact · Houston, TX</span></div>
+  <h1>Let's talk through <em>what's on your mind.</em></h1>
+  <p class="lede">A complimentary, no-obligation conversation. Microsoft Teams works for most first meetings; in-person available across the Houston area.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="contact-grid">
+    <div>
+      <div class="sub"><span style="color:var(--accent)">01</span> · Send a note</div>
+      <h2 style="font-size:30px;margin-bottom:8px">A few details, then I'll reach out.</h2>
+      <p style="color:var(--ink-soft);margin-bottom:24px;font-size:15.5px">Please <strong>do not</strong> include account numbers, Social Security numbers, or other sensitive financial information in this form.</p>
+      <form id="contact-form" autocomplete="on" novalidate>
+        <div class="row-2">
+          <div class="field"><label for="cf-fn">First name</label><input id="cf-fn" name="firstName" required /></div>
+          <div class="field"><label for="cf-ln">Last name</label><input id="cf-ln" name="lastName" required /></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="cf-em">Email</label><input id="cf-em" name="email" type="email" required /></div>
+          <div class="field"><label for="cf-ph">Phone</label><input id="cf-ph" name="phone" type="tel" /></div>
+        </div>
+        <div class="field"><label for="cf-topic">Primary topic</label><select id="cf-topic" name="topic">
+          <option>Retirement income planning</option>
+          <option>401(k) or pension rollover</option>
+          <option>Social Security & Medicare</option>
+          <option>Investment review</option>
+          <option>Insurance (life, LTC, annuity)</option>
+          <option>Business owner planning</option>
+          <option>General introduction</option>
+        </select></div>
+        <div class="field"><label for="cf-msg">Brief message</label><textarea id="cf-msg" name="message" placeholder="A sentence or two about what you're working through. No specifics — we'll cover that securely."></textarea></div>
+        <div class="field" style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink-soft);line-height:1.5">
+          <input id="cf-ack" type="checkbox" required style="width:auto;margin-top:3px" />
+          <label for="cf-ack" style="text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:13.5px">I understand this form is for general inquiries only. I will not include sensitive financial data.</label>
+        </div>
+        <button class="btn btn-primary" type="submit" style="border:0;cursor:pointer;font:inherit">Send message</button>
+        <div id="cf-ok" style="display:none;margin-top:16px;padding:14px;background:var(--accent-soft);border:1px solid var(--accent);font-size:14.5px">Thanks. I'll be in touch within one business day.</div>
+      </form>
+      <div class="no-data-notice"><strong>Privacy note.</strong> Form submissions are encrypted in transit. Per Reg S-P, personal information is handled in accordance with the firm's <a href="privacy.html" style="color:var(--ink);text-decoration:underline">privacy notice</a>. {{TODO: VERIFY form-to-CRM/email pipeline at deployment.}}</div>
+    </div>
+
+    <aside>
+      <div class="contact-meta">
+        <h3>Direct contact</h3>
+        <dl>
+          <dt>Phone</dt><dd><a href="tel:+12817865159">(281) 786-5159</a></dd>
+          <dt>Email</dt><dd><a href="mailto:alan.birsinger@wealthmanagementgroup-inc.com">alan.birsinger@wealthmanagementgroup-inc.com</a></dd>
+          <dt>Service Area</dt><dd>Greater Houston · Texas only</dd>
+          <dt>Hours</dt><dd>Mon–Fri, 9:00 a.m. – 5:00 p.m. CT<br/>Evenings by appointment</dd>
+          <dt>Firm</dt><dd>Wealth Management Group, Inc.<br/><span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);letter-spacing:.04em">CRD #4213860</span></dd>
+        </dl>
+        <div class="teams-block">
+          <div class="ms-mark"><span style="background:#f25022"></span><span style="background:#7fba00"></span><span style="background:#00a4ef"></span><span style="background:#ffb900"></span></div>
+          <div style="font-family:var(--font-display);font-size:19px;font-weight:500;margin-bottom:6px">Schedule via Microsoft Teams</div>
+          <p style="font-size:14px;color:var(--ink-soft);line-height:1.55;margin-bottom:14px">Pick a time that works. I'll send a Teams meeting invite — no software install needed; opens in any browser.</p>
+          <a class="btn btn-primary" href="#" data-todo="MS-BOOKINGS-LINK" onclick="alert('Microsoft Bookings / Teams link to be configured at deployment.');return false">Open Booking Page →</a>
+          <div style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);margin-top:12px;letter-spacing:.04em">{{TODO: REPLACE WITH MICROSOFT BOOKINGS URL}}</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding:24px;background:var(--paper);border:1px solid var(--rule)">
+        <div class="sub" style="margin-bottom:8px">A note on what we discuss</div>
+        <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0">First conversations are about your situation and what you're trying to figure out — not a sales process. If we're a fit, we'll talk about next steps. If we're not, I'll do my best to point you somewhere useful.</p>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<div id="site-footer"></div>
+<script src="chrome.js"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const ok = document.getElementById('cf-ok');
+  ok.style.display='block';
+  this.reset();
+  ok.scrollIntoView ? null : null;
+});
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FinancialService","name":"Alan J. Birsinger — Wealth Management Group, Inc.","url":"https://example.com/contact.html","telephone":"+1-281-786-5159","email":"alan.birsinger@wealthmanagementgroup-inc.com","areaServed":{"@type":"State","name":"Texas"},"openingHours":"Mo-Fr 09:00-17:00"}
+</script>
+</body></html>

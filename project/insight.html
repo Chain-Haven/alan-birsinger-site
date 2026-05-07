@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Insights | Alan J. Birsinger</title>
+<meta name="description" content="Plain-English articles on retirement, rollovers, Social Security, Medicare, and Houston-specific planning topics." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
+<style>
+.article-body{max-width:680px;margin:0 auto}
+.article-body p{font-size:18px;line-height:1.7;color:var(--ink-soft);margin:0 0 18px}
+.article-body h2{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--ink);margin:48px 0 18px;line-height:1.25}
+.article-body h3{font-family:var(--font-display);font-size:21px;font-weight:500;color:var(--ink);margin:32px 0 12px}
+.article-body ul{margin:0 0 18px 0;padding-left:0;list-style:none}
+.article-body li{font-size:17px;line-height:1.6;color:var(--ink-soft);padding:8px 0 8px 28px;border-bottom:1px solid var(--rule);position:relative}
+.article-body li:before{content:"";position:absolute;left:0;top:18px;width:14px;height:1px;background:var(--accent)}
+.article-meta{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+.article-meta .accent{color:var(--accent)}
+.disc-block{background:var(--bg-deep);border-left:2px solid var(--accent);padding:24px 28px;margin:48px 0 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.related-articles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:48px}
+.related-articles a{padding:24px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink);background:var(--paper)}
+.related-articles a:hover{background:var(--bg-deep)}
+.related-articles .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;display:block}
+.related-articles h4{font-family:var(--font-display);font-size:17px;font-weight:500;line-height:1.3}
+@media(max-width:880px){.related-articles{grid-template-columns:1fr}}
+.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.index-grid a{padding:32px 28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px;min-height:200px}
+.index-grid a:hover{background:var(--bg-deep)}
+.index-grid .num{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--accent)}
+.index-grid h3{font-family:var(--font-display);font-size:20px;font-weight:500;line-height:1.3;color:var(--ink)}
+.index-grid p{font-size:14.5px;color:var(--ink-soft);line-height:1.5;margin-top:auto}
+@media(max-width:980px){.index-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.index-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="wrap"><nav class="crumbs"><a href="Alan Birsinger Homepage.html">Home</a><span class="sep">/</span><a href="insight.html">Insights</a><span class="sep">/</span><span class="here" id="bc-current">Index</span></nav></div>
+
+<div id="article-view" style="display:none">
+  <section class="page-hero"><div class="wrap-narrow">
+    <div class="article-meta">
+      <span class="accent" id="art-cat">Category</span>
+      <span id="art-date">Date</span>
+      <span id="art-read">— min read</span>
+    </div>
+    <h1 id="art-h1" style="font-size:42px;line-height:1.15">Article title.</h1>
+    <p class="lede" id="art-lede">Loading…</p>
+  </div></section>
+
+  <section class="section"><div class="wrap-narrow">
+    <div class="article-body" id="art-body"></div>
+    <div class="disc-block" id="art-disc">
+      <strong style="color:var(--ink)">Disclaimer.</strong> This material is for general information only and is not intended to provide specific advice or recommendations for any individual. Consult a qualified professional regarding your specific situation.
+    </div>
+    <div class="related-articles" id="art-related"></div>
+    <div style="text-align:center;padding:48px 0 0">
+      <a class="btn btn-primary" href="Alan Birsinger Homepage.html#schedule">Schedule a Consultation</a>
+    </div>
+  </div></section>
+</div>
+
+<div id="index-view">
+  <section class="page-hero"><div class="wrap">
+    <div class="eyebrow-row"><span class="line"></span><span class="eyebrow">Insights · Plain-English Planning</span></div>
+    <h1>Articles for <em>thinking it through.</em></h1>
+    <p class="lede">Evergreen, plain-English notes on retirement decisions, rollovers, Social Security, Medicare, and Houston-specific planning topics. No hot takes, no predictions.</p>
+  </div></section>
+  <section class="section"><div class="wrap"><div class="index-grid" id="index-grid"></div></div></section>
+</div>
+
+<div id="site-footer"></div>
+<script src="insights-data.js"></script>
+<script src="chrome.js"></script>
+<script>
+(function(){
+  const id = (location.hash || '').replace(/^#/, '');
+  const all = window.INSIGHTS || {};
+  const order = window.INSIGHTS_ORDER || Object.keys(all);
+  if (!id) {
+    document.getElementById('article-view').style.display='none';
+    document.getElementById('index-view').style.display='block';
+    document.getElementById('index-grid').innerHTML = order.map((k,i) => {
+      const a = all[k]; if (!a) return '';
+      return `<a href="insight.html#${k}"><span class="num">${String(i+1).padStart(2,'0')} · ${a.cat}</span><h3>${a.h1}</h3><p>${a.lede.length>120?a.lede.slice(0,120)+'…':a.lede}</p></a>`;
+    }).join('');
+    return;
+  }
+  const a = all[id];
+  if (!a) { document.getElementById('index-view').style.display='block'; return; }
+  document.getElementById('index-view').style.display='none';
+  document.getElementById('article-view').style.display='block';
+  document.title = a.title;
+  document.querySelector('meta[name="description"]').setAttribute('content', a.meta);
+  document.getElementById('bc-current').textContent = a.crumb || a.h1;
+  document.getElementById('art-cat').textContent = a.cat;
+  document.getElementById('art-date').textContent = a.date;
+  document.getElementById('art-read').textContent = a.read;
+  document.getElementById('art-h1').textContent = a.h1;
+  document.getElementById('art-lede').textContent = a.lede;
+  document.getElementById('art-body').innerHTML = a.body.map(s => {
+    if (s.h) return `<h2>${s.h}</h2>` + (s.p?s.p.map(p=>`<p>${p}</p>`).join(''):'') + (s.list?`<ul>${s.list.map(l=>`<li>${l}</li>`).join('')}</ul>`:'');
+    return s.p ? s.p.map(p=>`<p>${p}</p>`).join('') : (s.list?`<ul>${s.list.map(l=>`<li>${l}</li>`).join('')}</ul>`:'');
+  }).join('');
+  const others = order.filter(k=>k!==id).slice(0,3);
+  document.getElementById('art-related').innerHTML = others.map(k=>{const o=all[k];return `<a href="insight.html#${k}"><span class="lbl">${o.cat}</span><h4>${o.h1}</h4></a>`}).join('');
+})();
+window.addEventListener('hashchange',()=>location.reload());
+</script>
+</body></html>
