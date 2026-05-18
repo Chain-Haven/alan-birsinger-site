@@ -19,10 +19,10 @@ window.INSIGHTS_ORDER = [
 window.INSIGHTS = {
   "exxonmobil-pension-lump-sum-vs-annuity": {
     cat: "Pension Decisions",
-    title: "ExxonMobil Pension: Lump Sum vs. Annuity | Alan Birsinger",
-    meta: "Seven questions to ask before electing your ExxonMobil pension as a lump sum or monthly annuity.",
-    h1: "ExxonMobil pension: lump sum vs. annuity — the questions to ask first.",
-    crumb: "ExxonMobil pension",
+    title: "Corporate Pension: Lump Sum vs. Annuity | Alan Birsinger",
+    meta: "Seven questions to ask before electing a corporate pension as a lump sum or monthly annuity.",
+    h1: "Corporate pension: lump sum vs. annuity — the questions to ask first.",
+    crumb: "Corporate pension",
     cat: "Pension Decisions",
     date: "May 2026",
     read: "9 min read",

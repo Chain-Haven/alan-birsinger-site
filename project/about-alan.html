@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>About Alan J. Birsinger | Houston Financial Advisor, 20+ Years</title>
-<meta name="description" content="Alan J. Birsinger is a Houston-based financial advisor with 20+ years of experience. BS and MS in Finance. Independent guidance through Wealth Management Group, Inc." />
+<title>About Alan J. Birsinger | Houston Financial Advisor — Fiduciary</title>
+<meta name="description" content="Alan J. Birsinger — Houston financial advisor with 25+ years in financial services. B.S. & M.S. in Finance from University of Houston Clear Lake. Series 6, 63, 66 and Texas Life & Health licensed. Independent guidance through Wealth Management Group, Inc." />
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,15 +14,38 @@
 .about-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 @media(max-width:980px){.about-hero{grid-template-columns:1fr}}
 .about-hero .photo{aspect-ratio:4/5;min-height:560px;background:var(--bg-deep);border:1px solid var(--rule);position:relative;overflow:hidden}
+
 .creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
 .creds-grid>div{padding:28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
 .creds-grid .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .creds-grid .val{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--ink);line-height:1.2}
-.creds-grid .sub{font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+.creds-grid .sub{font-size:13.5px;color:var(--ink-3);margin-top:6px}
 @media(max-width:780px){.creds-grid{grid-template-columns:1fr}}
+
 .candid-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
 .candid-grid .photo{aspect-ratio:4/5;min-height:480px;background:var(--bg-deep);border:1px solid var(--rule);position:relative;overflow:hidden}
 @media(max-width:780px){.candid-grid{grid-template-columns:1fr}}
+
+.experience-list{margin:0;padding:0;list-style:none}
+.experience-list li{padding:18px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline}
+.experience-list li:first-child{border-top:0;padding-top:0}
+.experience-list .role{font-family:var(--font-display);font-size:20px;color:var(--ink);font-weight:500}
+.experience-list .firm{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:24px}
+.svc-grid div{padding:18px 20px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper);font-size:15.5px;color:var(--ink);display:flex;align-items:center;gap:12px}
+.svc-grid div::before{content:"";width:5px;height:5px;background:var(--accent);flex-shrink:0}
+@media(max-width:680px){.svc-grid{grid-template-columns:1fr}}
+
+.qual-list{margin:0;padding:0;list-style:none}
+.qual-list li{padding:16px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline}
+.qual-list li:first-child{border-top:0;padding-top:0}
+.qual-list .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.qual-list .val{font-size:16px;color:var(--ink)}
+.qual-list .val a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+@media(max-width:560px){.qual-list li{grid-template-columns:1fr;gap:4px}}
+
+.philosophy-block{padding:36px 36px 36px 40px;background:var(--paper);border-left:3px solid var(--accent);font-family:var(--font-display);font-style:italic;font-size:22px;line-height:1.45;color:var(--ink);max-width:62ch}
 </style>
 <script src="image-slot.js"></script>
 </head>
@@ -33,9 +56,9 @@
 <section class="page-hero"><div class="wrap">
   <div class="about-hero">
     <div>
-      <div class="eyebrow-row"><span class="line"></span><span class="eyebrow">About · Alan J. Birsinger</span></div>
-      <h1>Twenty years of <em>doing this work carefully.</em></h1>
-      <p class="lede">When you hand someone your life savings, you're handing them a serious responsibility. I've spent two decades trying to live up to that — by listening first, communicating clearly, and treating every client with respect.</p>
+      <div class="eyebrow-row"><span class="line"></span><span class="eyebrow">About · Alan J. Birsinger · Fiduciary &amp; Financial Advisor</span></div>
+      <h1>An advisor who treats your life savings as <em>a personal responsibility.</em></h1>
+      <p class="lede">My journey to becoming a Financial Advisor began a little over ten years ago, when my father's health declined and I began helping him with his finances. After fifteen years in finance at a mutual fund company, I thought I had it covered. I was wrong — and that experience changed my career.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
         <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
         <a class="btn btn-ghost" href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">View on BrokerCheck →</a>
@@ -47,28 +70,81 @@
 
 <section class="section alt"><div class="wrap">
   <div class="creds-grid">
-    <div><div class="lbl">Experience</div><div class="val">20+ years</div><div class="sub">In financial services</div></div>
-    <div><div class="lbl">Education</div><div class="val">B.S. &amp; M.S.</div><div class="sub">In Finance</div></div>
+    <div><div class="lbl">Experience</div><div class="val">25+ years</div><div class="sub">In financial services</div></div>
+    <div><div class="lbl">Education</div><div class="val">B.S. &amp; M.S.</div><div class="sub">Finance · U. of Houston CL</div></div>
     <div><div class="lbl">Based in</div><div class="val">Houston, TX</div><div class="sub">Texas-licensed</div></div>
     <div><div class="lbl">FINRA CRD</div><div class="val">#4213860</div><div class="sub">Public on BrokerCheck</div></div>
-    <div><div class="lbl">Firm</div><div class="val">Wealth Management Group, Inc.</div><div class="sub">Independently owned</div></div>
-    <div><div class="lbl">Family</div><div class="val">Married, two kids</div><div class="sub">Long-time Houston resident</div></div>
+    <div><div class="lbl">Firm</div><div class="val">Wealth Management Group, Inc.</div><div class="sub">Independent · Charles Schwab custody</div></div>
+    <div><div class="lbl">Licensed</div><div class="val">Series 6 · 63 · 66</div><div class="sub">TX Life &amp; Health</div></div>
   </div>
 </div></section>
 
 <section class="section"><div class="wrap-narrow">
-  <div class="sub"><span style="color:var(--accent)">01</span> · Approach</div>
-  <h2 style="font-size:30px;margin-bottom:18px">How I think about this work.</h2>
-  <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);margin-bottom:18px">My job is to help you think clearly about your money — what you have, what you'll need, and the decisions in front of you. That usually means slowing the conversation down, not speeding it up. Pension elections, rollover decisions, and Social Security claiming are the kind of choices you make once. They deserve careful, considered attention.</p>
-  <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);margin-bottom:18px">I don't predict markets. I don't promise outcomes. I help build a plan that's reasonable across a range of futures, then revisit it when life changes.</p>
-  <p style="font-size:18px;line-height:1.7;color:var(--ink-soft)">I'm independent — meaning I'm not pushed to recommend any particular product or strategy. I work for the people who hire me, and I try to stay worth the work.</p>
+  <div class="sub"><span style="color:var(--accent)">01</span> · Philosophy</div>
+  <h2 style="font-size:30px;margin-bottom:24px">Personal relationships, taken seriously.</h2>
+  <div class="philosophy-block">
+    Working in financial services has taught me the importance of developing personal relationships with clients. They are entrusting me with their life savings. I take that responsibility seriously and do my best to always act with integrity, communicate effectively, and treat everyone with the utmost respect.
+  </div>
 </div></section>
 
 <section class="section alt"><div class="wrap-narrow">
-  <div class="sub"><span style="color:var(--accent)">02</span> · A bit about me, off the clock</div>
+  <div class="sub"><span style="color:var(--accent)">02</span> · How I got here</div>
+  <h2 style="font-size:30px;margin-bottom:18px">A career that turned personal.</h2>
+  <p style="font-size:18px;line-height:1.7;color:var(--ink-2);margin-bottom:18px">A little over ten years ago, my father's health began to decline and I started helping him with his finances. At that time, I had been working as a Finance Manager at a mutual fund company for fifteen years and held a Bachelor's and Master's in Finance — so I assumed the work would be straightforward. It wasn't.</p>
+  <p style="font-size:18px;line-height:1.7;color:var(--ink-2);margin-bottom:18px">To help my father, I had to research the unique rules around Medicare options, 401(k) distributions, pensions, Social Security, and how taxes affect each of them. The research took far more time than I expected. Working through it, I came to a conclusion: if it took me — with a finance background — this much effort, what about someone without one?</p>
+  <p style="font-size:18px;line-height:1.7;color:var(--ink-2)">That's when I decided to help others prepare for, and enjoy, their retirement. I now have over 25 years in the Financial Services industry, and currently hold Series 6, 63, and 66 licenses along with a Texas Department of Insurance Life &amp; Health license. Let me put that experience to work for you.</p>
+</div></section>
+
+<section class="section"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">03</span> · Work history</div>
+  <h2 style="font-size:30px;margin-bottom:18px">Where I've been.</h2>
+  <p style="color:var(--ink-2);max-width:62ch;margin-bottom:24px">A finance career across aerospace, technology, and asset management — before turning to private advisory work in Houston.</p>
+  <ul class="experience-list">
+    <li><div class="role">Financial Advisor</div><div class="firm">Wealth Management Group, Inc.</div></li>
+    <li><div class="role">Senior Manager, Finance</div><div class="firm">Invesco</div></li>
+    <li><div class="role">Finance Specialist</div><div class="firm">Hewlett-Packard</div></li>
+    <li><div class="role">Senior Financial Analyst</div><div class="firm">Boeing</div></li>
+  </ul>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">04</span> · Products &amp; services</div>
+  <h2 style="font-size:30px;margin-bottom:14px">What I help with.</h2>
+  <p style="color:var(--ink-2);max-width:62ch;margin-bottom:8px">Coordinated guidance across the planning areas Houstonians most often face — under one roof, in plain English.</p>
+  <div class="svc-grid">
+    <div>Comprehensive Financial Planning</div>
+    <div>Asset Allocation</div>
+    <div>Lump Sum Distribution Decisions</div>
+    <div>Roth Conversions</div>
+    <div>IRA Rollovers</div>
+    <div>Mutual Funds</div>
+    <div>Fixed &amp; Variable Annuities</div>
+    <div>Qualified Retirement Plans</div>
+    <div>Long-Term Care Insurance</div>
+    <div>Life Insurance</div>
+    <div>Education Funding · 529 Plans</div>
+    <div>Employer Benefit Decisions</div>
+  </div>
+  <p style="margin-top:24px;font-size:13px;color:var(--ink-3);font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase">Custody services through Charles Schwab &amp; Co.</p>
+</div></section>
+
+<section class="section"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">05</span> · Professional qualifications</div>
+  <h2 style="font-size:30px;margin-bottom:18px">Credentials &amp; licenses.</h2>
+  <ul class="qual-list">
+    <li><span class="lbl">Education</span><span class="val">Bachelor of Science · Finance — University of Houston Clear Lake</span></li>
+    <li><span class="lbl">Education</span><span class="val">Master of Science · Finance — University of Houston Clear Lake</span></li>
+    <li><span class="lbl">Securities</span><span class="val">Series 6, 63, and 66 Licenses</span></li>
+    <li><span class="lbl">Insurance</span><span class="val">Texas Department of Insurance · Life &amp; Health License</span></li>
+    <li><span class="lbl">Verify</span><span class="val"><a href="https://brokercheck.finra.org/individual/summary/4213860" target="_blank" rel="noopener">FINRA BrokerCheck · CRD #4213860 ↗</a></span></li>
+  </ul>
+</div></section>
+
+<section class="section alt"><div class="wrap-narrow">
+  <div class="sub"><span style="color:var(--accent)">06</span> · A bit about me, off the clock</div>
   <h2 style="font-size:30px;margin-bottom:18px">The Houston part.</h2>
-  <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);margin-bottom:18px">I've lived in the Houston area for many years. My wife and I are raising two children here. On weekends I'm usually on a soccer field, on a golf course, or in the garage tinkering with an antique car that hasn't run quite right since the day I bought it.</p>
-  <p style="font-size:18px;line-height:1.7;color:var(--ink-soft)">I include this because most clients want to know the person, not just the credentials. The credentials matter — but the relationship matters more, and that takes more than a CV to build.</p>
+  <p style="font-size:18px;line-height:1.7;color:var(--ink-2);margin-bottom:18px">I've lived in the Houston area for many years. My wife and I are raising two children here. On weekends I'm usually on a soccer field, on a golf course, or in the garage tinkering with an antique car that hasn't run quite right since the day I bought it.</p>
+  <p style="font-size:18px;line-height:1.7;color:var(--ink-2)">I include this because most clients want to know the person, not just the credentials. The credentials matter — but the relationship matters more, and that takes more than a CV to build.</p>
   <div class="candid-grid">
     <div class="photo"><image-slot id="alan-candid-1" placeholder="Alan — candid (golf or family), 4:5" shape="rect"></image-slot></div>
     <div class="photo"><image-slot id="alan-candid-2" placeholder="Alan — candid (antique car or workshop), 4:5" shape="rect"></image-slot></div>
@@ -77,13 +153,13 @@
 
 <section class="section"><div class="wrap-narrow" style="text-align:center">
   <h2 style="font-size:32px;margin-bottom:14px">Talk through your situation.</h2>
-  <p style="color:var(--ink-soft);margin-bottom:24px">A complimentary, no-obligation conversation. Microsoft Teams or in person.</p>
+  <p style="color:var(--ink-2);margin-bottom:24px">A complimentary, no-obligation conversation. Microsoft Teams or in person.</p>
   <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
 </div></section>
 
 <div id="site-footer"></div>
 <script src="chrome.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Alan J. Birsinger","jobTitle":"Financial Advisor","worksFor":{"@type":"Organization","name":"Wealth Management Group, Inc."},"alumniOf":[{"@type":"EducationalOrganization","name":"M.S. in Finance"},{"@type":"EducationalOrganization","name":"B.S. in Finance"}],"knowsAbout":["Retirement Planning","401(k) Rollovers","Pension Elections","Social Security","Medicare","Asset Allocation","Investment Management","Annuities","Long-Term Care Insurance","Education Funding","Business Succession"],"identifier":{"@type":"PropertyValue","propertyID":"FINRA CRD","value":"4213860"},"url":"https://brokercheck.finra.org/individual/summary/4213860"}
+{"@context":"https://schema.org","@type":"Person","name":"Alan J. Birsinger","jobTitle":"Financial Advisor","worksFor":{"@type":"Organization","name":"Wealth Management Group, Inc."},"alumniOf":[{"@type":"EducationalOrganization","name":"University of Houston Clear Lake — M.S. in Finance"},{"@type":"EducationalOrganization","name":"University of Houston Clear Lake — B.S. in Finance"}],"hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 6"},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 63"},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"FINRA Series 66"},{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"Texas Department of Insurance — Life & Health"}],"knowsAbout":["Comprehensive Financial Planning","Asset Allocation","Lump Sum Distribution Decisions","Roth Conversions","IRA Rollovers","Mutual Funds","Fixed and Variable Annuities","Qualified Retirement Plans","Long-Term Care Insurance","Life Insurance","Education Funding 529 Plans","Employer Benefit Decisions"],"identifier":{"@type":"PropertyValue","propertyID":"FINRA CRD","value":"4213860"},"url":"https://brokercheck.finra.org/individual/summary/4213860"}
 </script>
 </body></html>
